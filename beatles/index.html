@@ -1,0 +1,2926 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Mono:100,300,400" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Mono:100,400" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Asap|Montserrat|Ultra" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:400,400i" rel="stylesheet">
+</head>  
+<style>
+    
+    @font-face { font-family: Miller1; src: url('Miller-Text-Bold-Italic_30502.ttf'); } 
+    @font-face { font-family: Miller2; src: url('Miller-Text-Bold_30503.ttf'); } 
+    @font-face { font-family: Miller3; src: url('Miller-Text-Italic_30504.ttf'); }
+    @font-face { font-family: Miller4; src: url('MillerTextRoman.ttf'); }
+    
+   .background {
+      background: url(beatles-header.png);
+      background-size: cover; 
+      background-position: center center;
+    }
+   .transbox {
+      margin: 30px;
+      padding-bottom: 120px;
+      
+      /*background-color: #ffffff;*/
+      /*border: 1px solid black;*/
+      /*opacity: 0.6;*/
+      /*filter: alpha(opacity=60);  For IE8 and earlier */
+    }
+   
+    #mainText {
+      font-family: 'Miller3';
+      font-weight: 400;
+      font-size: 35px;
+      /*color: green;*/
+      /*margin-left: 50px;*/
+    }
+    
+    #subText{
+        font-family: 'Miller4';
+        font-weight: 400;
+        font-size: 12px;
+      /*color: green;*/
+      /*margin-left: 50px;*/
+        
+    }
+    
+    .songName {
+      font-family: 'Nunito Sans', sans-serif;
+      /*font-weight: "400i";*/
+      font-size: 22px;
+      font-style:italic;
+      /*color: green;*/
+      /*margin-left: 50px;*/
+    }
+    
+    .yearBody{
+      font-family: 'Nunito Sans', sans-serif;
+      /*font-weight: 400;*/
+      font-size: 10px;
+      /*font-style:italic;*/
+      /*color: green;*/
+      /*margin-left: 50px;*/
+        
+    }
+    
+    .songDetails {
+          font-family: 'Nunito Sans', sans-serif;
+          font-weight: 400;
+          font-size: 12px;
+    }
+    
+    body {
+      
+      background-color: #212121;
+ 
+    }
+    .arc text {
+      font: 10px sans-serif;
+      text-anchor: middle;
+    }
+
+    .arc path {
+      /*stroke: #fff;*/
+    }
+    
+    .arrange-vertically > * {
+        display: block;
+        border: 1px solid blue;
+        margin-left: 35px;
+        margin-right: 35px;
+        /*padding-bottom: 10px;*/
+        /*margin-top: 100px;*/
+    }
+    
+    .arrange-vertically-time > * {
+        margin-left: 40px;
+        margin-right: 40px;
+    }
+     
+    .arrange-horizontally > * {
+    display: inline-block;
+    text-align: center;
+     /*border: 1px solid green*/
+    }
+
+    .genreNames{
+        font-family: 'Roboto Mono', monospace;
+        font-weight: 300;
+        color: lightGray;
+        font-size: 12px;
+        letter-spacing: 2px;
+        margin-bottom: 25px;
+        margin-top: 5px;
+    }
+
+    #genreFilter{
+        font-family: 'Roboto Mono', monospace;
+        font-weight: 400;
+        color: lightGray;
+        font-size: 16px;
+        /*letter-spacing: 2px;*/
+        margin-top: 0px; 
+        margin-bottom: 26px;
+    }
+    
+        
+   .time {
+          display: inline-block;
+          padding: 10px 28px;
+          cursor: pointer;
+          outline: none;
+          color: #2a2a2a;
+          background-color: #999999;
+          border: none;
+          border-radius: 5px;
+          box-shadow: 4px 4px #686868;
+          margin-bottom: 65px;
+          font-family: 'Roboto Mono', monospace;
+          font-weight: 400;
+          /*color: lightGray;*/
+          font-size: 12px;
+          letter-spacing: 2px;
+        }
+        
+    
+        
+    .time:hover {background-color: #b0b0b0; color: #7CFC00;}
+        
+    .time:active {
+          background-color: #8e8e8e;
+          box-shadow: 0 5px #212121;
+          transform: translateY(3px);
+          transform: translateX(3px);
+        }
+        
+    #duration{
+        display: inline-block;
+          padding: 30px 30px;
+          cursor: pointer;
+          outline: none;
+          color: #2a2a2a;
+          background-color: #999999;
+          border: none;
+          border-radius: 60px;
+          box-shadow: 0px 4px #686868;
+          margin-bottom: 62px;
+          margin-left: 25%;
+          font-family: 'Roboto Mono', monospace;
+          font-weight: 400;
+          /*color: lightGray;*/
+          font-size: 12px;
+          letter-spacing: 2px;
+    }   
+    
+    .writers {
+        padding-bottom: 20px;
+    }
+    
+    #duration:hover {background-color: #b0b0b0; color: #7CFC00;}
+        
+    #duration:active {
+          background-color: #8e8e8e;
+          box-shadow: 0 5px #212121;
+          transform: translateY(3px);
+          /*transform: translateX(3px);*/
+        }
+        
+    #uscharts{
+        display: inline-block;
+          padding: 30px 30px;
+          cursor: pointer;
+          outline: none;
+          color: #2a2a2a;
+          background-color: #999999;
+          border: none;
+          border-radius: 60px;
+          box-shadow: 0px 4px #686868;
+          margin-bottom: 62px;
+          margin-right: 30%;
+          float: right;
+          font-family: 'Roboto Mono', monospace;
+          font-weight: 400;
+          /*color: lightGray;*/
+          font-size: 12px;
+          letter-spacing: 2px;
+    }   
+    
+    #uscharts:hover {background-color: #b0b0b0; color: #7CFC00;}
+        
+    #uscharts:active {
+          background-color: #8e8e8e;
+          box-shadow: 0 5px #212121;
+          transform: translateY(3px);
+          /*transform: translateX(3px);*/
+        }    
+        
+        
+        h1 {
+            color: lightGray;
+            font-family: 'Miller2';
+            /*text-align: center;*/
+            padding-top: 0px ;
+            margin: 0px 15% 0px 15%;
+            padding-bottom: 60px;
+            font-size: 66px;
+        }
+        
+        h3 {
+            margin: 0px 34% 0px 15%;
+            color: white;
+            font-family: 'Miller2';
+            font-size: 30px;
+        }
+        
+        #intro {
+            margin: 0px 34% 0px 15%;
+            color: lightGray;
+            padding-top: 20px;
+            /*text-align: justify;*/
+            text-justify: auto;
+            font-family: 'Nunito Sans', sans-serif;
+            line-height: 150%;
+            font-size: 130%;
+            opacity: 1;
+        }
+        
+        #intro2 {
+            margin: 0px 15% 0px 15%;
+            color: lightGray;
+            padding-top: 20px;
+            /*text-align: justify;*/
+            text-justify: auto;
+            font-family: 'Nunito Sans', sans-serif;
+            line-height: 135%;
+            font-size: 120%;
+            opacity: 1;
+        }
+        
+        #toptext {
+            margin: 0px 34% 0px 15%;
+            color: white;
+            /*text-align: justify;*/
+            text-justify: auto;
+            font-family: 'Miller3';
+            line-height: 150%;
+            font-size: 120%;
+            opacity: 0.9;
+            margin-bottom: 0px;
+            margin-top: 80px;
+        }
+        
+        .button1{
+                background-color: #212121; /* Green */
+                border: 0px;
+                font-weight: 700;
+                color: white;
+                padding: 5px 0px 0px 0px;
+                text-align: left;
+                text-decoration: none;
+                display: inline-block;
+                font-size: 2vh;
+                /*position: absolute;*/
+                cursor: pointer;
+                font-family: 'Roboto Mono', monospace;
+                font-weight: 400;
+            }
+            
+        .button{
+            display: inline-block;
+          padding: 10px 28px;
+          cursor: pointer;
+          outline: none;
+          color: #2a2a2a;
+          background-color: #999999;
+          border: none;
+          border-radius: 5px;
+         box-shadow: 0px 4px #686868;
+          margin-bottom: 65px;
+          margin-left: 90px;
+          font-family: 'Roboto Mono', monospace;
+          font-weight: 400;
+          /*color: lightGray;*/
+          font-size: 12px;
+          letter-spacing: 2px;
+        }  
+        
+         .button:hover {background-color: #b0b0b0; color: #7CFC00;}
+        
+        .botton:active {
+          background-color: #8e8e8e;
+          box-shadow: 0 5px #212121;
+          transform: translateY(4px);
+          /*transform: translateX(3px);*/
+        }
+            
+            a {
+                color: white;
+            
+                }
+            a:hover {
+                color: white;
+                font-weight: bolder;
+                }
+            
+            #future{
+                padding-top: 100px;
+            }
+    
+            .rightSide {
+                cursor: pointer;
+            }
+    
+</style>
+
+<body>
+    <div class="background">
+        <div class="transbox">
+            <p id="toptext">Evolution of</p>
+            <h1 style="color: white;"> The Beatles</h1>
+            <p id="intro">The Beatles became widely regarded as the foremost and most
+                influential act of the rock era. Rooted in skiffle, beat, and 1950s rock
+                and roll, the Beatles later experimented with <a href="https://rockerinfo.wordpress.com/2009/08/20/the-beatles-musical-style-and-evolution/">several musical styles</a>, ranging from pop ballads and Indian music to psychedelia and
+                hard rock, often incorporating classical elements and unconventional
+                recording techniques in innovative ways. In the early 1960s, their
+                enormous popularity first emerged as "<a href="https://en.wikipedia.org/wiki/Beatlemania">Beatlemania</a>", but as the group's
+                music grew in sophistication, led by primary songwriters Lennon and
+                McCartney, they came to be perceived as an embodiment of the ideals
+                shared by the counterculture of the 1960s. This work is an attempt to visualize their music, and its evolution over time.<br> Scroll down to explore.
+            </p>
+          
+            
+        </div>
+    </div>
+        <br><br><br><br><br><br><br><br>
+       
+     <!--<p id="genreFilter" style="text-align: center;"> SONG WRITERS</p>    -->
+     <div id="writers">
+                <!--<div>-->
+                <!--     <input class="button"-->
+                <!--           id="lennon"-->
+                <!--           name="start" -->
+                <!--           type="button" -->
+                <!--           value="LENNON" />-->
+                           
+                                   
+                <!--    <input class="button"-->
+                <!--           id="mccartney"-->
+                <!--           name="start" -->
+                <!--           type="button" -->
+                <!--           value="McCARTNEY" />-->
+                           
+                <!--    <input class="button"-->
+                <!--           id="harrison"-->
+                <!--           name="start" -->
+                <!--           type="button" -->
+                <!--           value="HARRISON" />-->
+                           
+                <!--    <input class="button"-->
+                <!--           id="starkey"-->
+                <!--           name="start" -->
+                <!--           type="button" -->
+                <!--           value="STARKEY" />-->
+                    
+                <!--    <input class="button"-->
+                <!--           id="lennonmccartney"-->
+                <!--           name="start" -->
+                <!--           type="button" -->
+                <!--           value="LENNON & McCARTNEY"  />-->
+                <!--</div> -->
+            </div> 
+    <div class="arrange-horizontally"> 
+        <svg id="svg"></svg>
+        
+    </div>
+    <br>
+    <br><br><br>
+    
+    <h3> Data Sources and Methodology:</h3>
+    
+    <p id="intro2"> The list of songs above are based off the data scraped from the Beatles' Wikipedia page.
+    Every song is represented by all the differet genres it is influenced from. The data for the genres for each song is derived from the information available on every song's wikipedia page. Data was scraped from 226 different web-pages, one for each song. 
+    Most common genre influnces were grouped seperately and the less common genres were grouped under one category - 'others' and given a green color. 
+    Every cell in the circular grid above represents one song, with its influnces. <br> The same sources were used to collect the <b>song lengths</b>, <b>song writers</b>, <b>album names</b>, <b>US chart positions</b> and <b>data created</b>, and the process was repeated for each of these variables. 
+        
+    </p>
+    
+    <h3 id="future"> Future Scope:</h3>
+    
+    <p id="intro2"> As a future scope, I would like to include other variables that help in understanding the evolution of the Beatles' music. There is a list of all songs and their lyrics available on the web, which I would like to use to carry out a textual analysis to further understand the development of their music over their active years. 
+    Examples of such variables are - the number of unique words in each song, the number of times the term 'love' was used in their songs, number of repetitions, and the emotions behind the songs.
+    I would also like to explore how the Beatles have evolved in their use of instruments and how this has impacted other aspects of their music. 
+    Currently, the filters applied above are exclusive to themselves. I would also like to add hierarchy to the structure to see if I can uncover new trends. 
+    
+    </p>
+    
+      <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+    
+
+  <script src="//d3js.org/d3.v3.min.js"></script>
+  <script src='songs.js'></script>
+  <script>
+        
+        
+        
+            
+      var width = window.innerWidth,
+          height = 800,
+          radius = Math.min(width, height) / 2;
+          var r = radius - 200;
+     
+     var svg = d3.select("#svg")
+                          .attr("width", width)
+                          .attr("height", height)
+                        .append("g")
+                          .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
+     
+      
+       
+       
+       
+                       
+      d3.select("svg")
+            .append("text")
+            .attr("id", "mainText")
+            .text("The Beatles")
+            .attr("text-anchor", "middle")
+            .attr('x', width/2)
+            .attr('y', height/2)
+            .attr("fill", "white");
+        
+        d3.select("svg")
+            .append("text")
+            .attr("id", "subText")
+            .text("CLICK to begin")
+            .attr("text-anchor", "middle")
+            .attr('x', width/2)
+            .attr('y', height/2 + 80)
+            .attr("fill", "white");            
+           
+           
+           var arc1 = d3.svg.arc()
+                        .outerRadius(r + 10) 
+                        .innerRadius(r);
+              
+      var arc2 = d3.svg.arc()
+                        .outerRadius(r + 20)
+                        .innerRadius(r + 10);    
+                    
+      var arc3 = d3.svg.arc()
+                        .outerRadius(r + 30)
+                        .innerRadius(r + 20); 
+                    
+      var arc4 = d3.svg.arc()
+                        .outerRadius(r + 40)
+                        .innerRadius(r + 30);     
+                    
+      var arc5 = d3.svg.arc()
+                        .outerRadius(r + 50)
+                        .innerRadius(r + 40);
+                        
+      var arc6 = d3.svg.arc()
+                        .outerRadius(r + 60)
+                        .innerRadius(r + 50);
+                        
+      var arc7 = d3.svg.arc()
+                        .outerRadius(r + 70)
+                        .innerRadius(r + 60);    
+                    
+      
+      d3.csv("beatles-data-load-v2.csv", function(error, data) {
+            if (error) throw error;
+      
+            genreButtons();     
+      
+              var pie = d3.layout.pie()
+                  .sort(null)
+                  .value(function() { return 10; });
+            
+              var g = svg.selectAll(".arc")
+                  .data(pie(data))
+                .enter().append("g")
+                  .attr("class", "arc");
+            
+            // createTimeAxis();
+            
+            
+              var counter = 2;
+             
+             begin();     
+            // d3.select("body").on("click", function(){ begin(); } ) ;     
+
+            d3.select("#duration").on("click", function(){ duration(); });
+           
+            d3.select("#uscharts").on("click", function(){ uscharts(); }); 
+        
+            d3.select("#lennon").on("click", function(){ lennon(); }); 
+            d3.select("#mccartney").on("click", function(){ mccartney(); });
+            d3.select("#harrison").on("click", function(){ harrison(); });
+            d3.select("#starkey").on("click", function(){ starkey(); });
+            d3.select("#lennonmccartney").on("click", function(){ lennonmccartney(); });
+            
+            
+            if(counter == 2){
+                
+            d3.select("svg")
+                    .append("rect")
+                    .attr("class", "genreButtons")
+                    .attr("id", "allGenres")
+                    .attr("x", width/20)
+                    .attr("y", height/2 - width/160 + 16*(width/80))
+                    .attr("width", width/80 + width/6)
+                    .attr("height", width/80)
+                    .attr("fill", "#212121");
+                
+                
+                d3.select("svg")
+                    .append("text")
+                    .attr("id", "allText")
+                    .attr("class", "genreText")
+                    .text("ALL GENRES")
+                    .attr("text-anchor", "middle")
+                    .attr('x', width/20 + width/12)
+                    .attr('y', height/2 + width/240 + 16*(width/80))
+                    .attr("fill", "gray")
+                    .attr("font-size", width/100);
+            
+            
+            d3.select("#allGenres").on("mouseover", function(){ 
+                   
+                   d3.select("#psychedelicText").attr("fill", "gray");
+                   d3.select("#folkText").attr("fill", "gray");
+                   d3.select("#popText").attr("fill", "gray");
+                   d3.select("#rockText").attr("fill", "gray");
+                   d3.select("#bluesText").attr("fill", "gray");
+                   d3.select("#rockrollText").attr("fill", "gray");
+                   d3.select("#otherText").attr("fill", "gray");
+                   d3.select("#allText").attr("fill", "white");
+                   
+                   d3.select("#songDuration").attr("stroke", "gray").attr("stroke-width", 1);
+                   d3.select("#songDurationText").attr("fill", "gray");
+                   
+                   d3.selectAll(".segment1").remove();
+                   d3.selectAll(".segment2").remove();
+                   d3.selectAll(".segment3").remove();
+                   d3.selectAll(".segment4").remove();
+                   d3.selectAll(".segment5").remove();
+                   d3.selectAll(".segment6").remove();
+                   d3.selectAll(".segment7").remove();
+                   d3.selectAll(".segment8").remove();
+                   d3.selectAll(".segment9").remove();
+                   d3.selectAll(".segment10").remove();
+                   d3.selectAll(".segment11").remove();
+                   d3.selectAll(".segment12").remove();
+                   d3.selectAll(".segment13").remove();
+                   d3.selectAll(".segment14").remove();
+                   d3.selectAll(".segment15").remove();
+                   d3.selectAll("#mainText").remove();
+                   
+                   begin(); }); 
+                   
+            }
+            // ================= song duration =================  
+            
+                d3.select("svg")
+                    .append("rect")
+                    .attr("class", "rightSide")
+                    .attr("id", "songDuration")
+                    .attr("x", width - width/20 - width/6)
+                    .attr("y", height/2 - width/40)
+                    .attr("width", width/80 + width/6)
+                    .attr("height", width/20)
+                    .attr("fill", "#212121")
+                    .attr("stroke", "gray")
+                    .attr("stroke-width", 0.5);  
+                
+                d3.select("svg")
+                    .append("text")
+                    .attr("class", "rightSide")
+                    .attr("id", "songDurationText")
+                    .text("Song Duration")
+                    .attr("text-anchor", "middle")
+                    .attr('x', width - width/20 - width/6 + width/11)
+                    .attr('y', height/2 + width/240)
+                    .attr("fill", "gray")
+                    .attr("font-size", width/100);
+                    
+                // ================= time wheel  =================  
+            
+                d3.select("svg")
+                    .append("rect")
+                    .attr("class", "rightSide")
+                    .attr("id", "timeWheel")
+                    .attr("x", width - width/20 - width/6)
+                    .attr("y", height/2 - width/40 - width/10)
+                    .attr("width", width/80 + width/6)
+                    .attr("height", width/20)
+                    .attr("fill", "#212121")
+                    .attr("stroke", "gray")
+                    .attr("stroke-width", 0.5);  
+                
+                d3.select("svg")
+                    .append("text")
+                    .attr("class", "rightSide")
+                    .attr("id", "timeWheelText")
+                    .text("Time Wheel")
+                    .attr("text-anchor", "middle")
+                    .attr('x', width - width/20 - width/6 + width/11)
+                    .attr('y', height/2 + width/240 - width/10)
+                    .attr("fill", "gray")
+                    .attr("font-size", width/100);     
+          
+           // ================= US chart  =================  
+            
+                d3.select("svg")
+                    .append("rect")
+                    .attr("class", "rightSide")
+                    .attr("id", "usChart")
+                    .attr("x", width - width/20 - width/6)
+                    .attr("y", height/2 - width/40 + width/10)
+                    .attr("width", width/80 + width/6)
+                    .attr("height", width/20)
+                    .attr("fill", "#212121")
+                    .attr("stroke", "gray")
+                    .attr("stroke-width", 0.5);  
+                
+                d3.select("svg")
+                    .append("text")
+                    .attr("class", "rightSide")
+                    .attr("id", "usChartText")
+                    .text("US charts - top 100")
+                    .attr("text-anchor", "middle")
+                    .attr('x', width - width/20 - width/6 + width/11)
+                    .attr('y', height/2 + width/240 + width/10)
+                    .attr("fill", "gray")
+                    .attr("font-size", width/100);     
+          
+          
+                
+            var timeWheelCounter = 0;
+            var usChartCounter = 0;
+            var songDurationCounter = 0;
+          
+            d3.select("#timeWheel").on("click", function(){ 
+                   counter = 2;
+                   if(timeWheelCounter == 0) {
+                //   d3.select("#psychedelicText").attr("fill", "gray");
+                //   d3.select("#folkText").attr("fill", "gray");
+                //   d3.select("#popText").attr("fill", "gray");
+                //   d3.select("#rockText").attr("fill", "gray");
+                //   d3.select("#bluesText").attr("fill", "gray");
+                //   d3.select("#rockrollText").attr("fill", "gray");
+                //   d3.select("#otherText").attr("fill", "gray");
+                //   d3.select("#allText").attr("fill", "white");
+                   
+                //   d3.selectAll(".segment1").remove();
+                //   d3.selectAll(".segment2").remove();
+                //   d3.selectAll(".segment3").remove();
+                //   d3.selectAll(".segment4").remove();
+                //   d3.selectAll(".segment5").remove();
+                //   d3.selectAll(".segment6").remove();
+                //   d3.selectAll(".segment7").remove();
+                //   d3.selectAll(".segment8").remove();
+                //   d3.selectAll(".segment9").remove();
+                //   d3.selectAll(".segment10").remove();
+                //   d3.selectAll(".segment11").remove();
+                //   d3.selectAll(".segment12").remove();
+                //   d3.selectAll(".segment13").remove();
+                //   d3.selectAll(".segment14").remove();
+                //   d3.selectAll(".segment15").remove();
+                   d3.selectAll("#mainText").remove();
+                   
+                   d3.select("#timeWheel").attr("stroke", "white").attr("stroke-width", 2);
+                   d3.select("#timeWheelText").attr("fill", "white");
+                   createTimeAxis();
+                   timeWheelCounter = 1;
+                   
+                   
+                   }else{
+                       d3.selectAll(".axis").remove();
+                       d3.selectAll(".axisInner").remove();
+                       d3.selectAll(".axisOuter").remove();
+                       
+                    d3.selectAll(".yearHeading").remove();
+                    d3.selectAll(".yearClick").remove();
+                    d3.selectAll(".yearBody").remove();
+                       timeWheelCounter = 0;
+                       d3.select("#timeWheel").attr("stroke", "gray").attr("stroke-width", 1);
+                       d3.select("#timeWheelText").attr("fill", "gray");
+                       
+                   }
+                     
+                   });
+            
+            d3.select("#songDuration").on("click", function(){ 
+                   counter = 0;
+                   if(songDurationCounter == 0) {
+                   
+                  d3.selectAll("#mainText").remove(); 
+                    d3.selectAll(".yearHeading").remove();
+                    d3.selectAll(".yearClick").remove();
+                    d3.selectAll(".yearBody").remove(); 
+                  d3.selectAll(".segment1").remove();
+                  d3.select("#psychedelicText").attr("fill", "gray");
+                  d3.select("#folkText").attr("fill", "gray");
+                  d3.select("#popText").attr("fill", "gray");
+                  d3.select("#rockText").attr("fill", "gray");
+                  d3.select("#bluesText").attr("fill", "gray");
+                  d3.select("#rockrollText").attr("fill", "gray");
+                  d3.select("#otherText").attr("fill", "gray");
+                  d3.select("#allText").attr("fill", "gray");
+                   d3.selectAll("#mainText").remove();
+                   
+                   d3.select("#songDuration").attr("stroke", "white").attr("stroke-width", 2);
+                   d3.select("#songDurationText").attr("fill", "white");
+                   duration();
+                   songDurationCounter = 1;
+                   }else{
+                       d3.selectAll("#mainText").remove(); 
+                    d3.selectAll(".yearHeading").remove();
+                    d3.selectAll(".yearClick").remove();
+                    d3.selectAll(".yearBody").remove();
+                        d3.selectAll(".segment1").remove();
+                        d3.selectAll(".segment2").remove();
+                        d3.selectAll(".segment3").remove();
+                        d3.selectAll(".segment4").remove();
+                        d3.selectAll(".segment5").remove();
+                        d3.selectAll(".segment6").remove();
+                        d3.selectAll(".segment7").remove();
+                        d3.selectAll(".segment8").remove();
+                        d3.selectAll(".segment9").remove();
+                        d3.selectAll(".segment10").remove();
+                        d3.selectAll(".segment11").remove();
+                        d3.selectAll(".segment12").remove();
+                        d3.selectAll(".segment13").remove();
+                        d3.selectAll(".segment14").remove();
+                        d3.selectAll(".segment15").remove();
+                        d3.selectAll("#mainText").remove();
+                       
+                       begin();
+                       
+                       songDurationCounter = 0;
+                       d3.select("#songDuration").attr("stroke", "gray").attr("stroke-width", 1);
+                       d3.select("#songDurationText").attr("fill", "gray");
+                       
+                   }
+                     
+                   });       
+          
+           d3.select("#usChart").on("click", function(){ 
+                   counter = 0;
+                   if(usChartCounter == 0) {
+                   
+                  d3.selectAll("#mainText").remove(); 
+                    d3.selectAll(".yearHeading").remove();
+                    d3.selectAll(".yearClick").remove();
+                    d3.selectAll(".yearBody").remove(); 
+                //   d3.selectAll(".segment1").remove();
+                //   d3.select("#psychedelicText").attr("fill", "gray");
+                //   d3.select("#folkText").attr("fill", "gray");
+                //   d3.select("#popText").attr("fill", "gray");
+                //   d3.select("#rockText").attr("fill", "gray");
+                //   d3.select("#bluesText").attr("fill", "gray");
+                //   d3.select("#rockrollText").attr("fill", "gray");
+                //   d3.select("#otherText").attr("fill", "gray");
+                //   d3.select("#allText").attr("fill", "gray");
+                //   d3.selectAll("#mainText").remove();
+                   
+                   d3.select("#usChart").attr("stroke", "white").attr("stroke-width", 2);
+                   d3.select("#usChartText").attr("fill", "white");
+                   uscharts();
+                   usChartCounter = 1;
+                   }else{
+                    //   d3.selectAll("#mainText").remove(); 
+                    // d3.selectAll(".yearHeading").remove();
+                    // d3.selectAll(".yearClick").remove();
+                    // d3.selectAll(".yearBody").remove();
+                    //     d3.selectAll(".segment1").remove();
+                    //     d3.selectAll(".segment2").remove();
+                    //     d3.selectAll(".segment3").remove();
+                    //     d3.selectAll(".segment4").remove();
+                    //     d3.selectAll(".segment5").remove();
+                    //     d3.selectAll(".segment6").remove();
+                    //     d3.selectAll(".segment7").remove();
+                    //     d3.selectAll(".segment8").remove();
+                    //     d3.selectAll(".segment9").remove();
+                    //     d3.selectAll(".segment10").remove();
+                    //     d3.selectAll(".segment11").remove();
+                    //     d3.selectAll(".segment12").remove();
+                    //     d3.selectAll(".segment13").remove();
+                    //     d3.selectAll(".segment14").remove();
+                    //     d3.selectAll(".segment15").remove();
+                    //     d3.selectAll("#mainText").remove();
+                       
+                    //   begin();
+                       d3.selectAll(".segmentUS").remove();
+                       usChartCounter = 0;
+                       d3.select("#usChart").attr("stroke", "gray").attr("stroke-width", 1);
+                       d3.select("#usChartText").attr("fill", "gray");
+                       
+                   }
+                     
+                   });
+           
+           function genreButtons(){
+               
+               // --------------------------------------------------------------
+               d3.select("svg")
+                    .append("rect")
+                    .attr("class", "genreButtons")
+                    .attr("id", "psychedelic")
+                    .attr("x", width/20)
+                    .attr("y", height/2 - width/160)
+                    .attr("width", width/80 + width/6)
+                    .attr("height", width/80)
+                    .attr("fill", "#212121");
+               
+               d3.select("svg")
+                    .append("rect")
+                    .attr("class", "genreButtons")
+                    .attr("id", "psychedelic")
+                    .attr("x", width/20)
+                    .attr("y", height/2 - width/160)
+                    .attr("width", width/80)
+                    .attr("height", width/80)
+                    .attr("fill", "#f933ff");
+                
+                d3.select("svg")
+                    .append("text")
+                    .attr("class", "genreText")
+                    .attr("id", "psychedelicText")
+                    .text("PSYCHEDELIC")
+                    .attr("text-anchor", "middle")
+                    .attr('x', width/20 + width/12)
+                    .attr('y', height/2 + width/240)
+                    .attr("fill", "gray")
+                    .attr("font-size", width/100);
+                
+                // ---------------------------------------------------------------
+                d3.select("svg")
+                    .append("rect")
+                    .attr("class", "genreButtons")
+                    .attr("id", "folk")
+                    .attr("x", width/20)
+                    .attr("y", height/2 - width/160 - 4*(width/80))
+                    .attr("width", width/80 + width/6)
+                    .attr("height", width/80)
+                    .attr("fill", "#212121");
+                    
+                d3.select("svg")
+                    .append("rect")
+                    .attr("class", "genreButtons")
+                    .attr("id", "folk")
+                    .attr("x", width/20)
+                    .attr("y", height/2 - width/160 - 4*(width/80))
+                    .attr("width", width/80)
+                    .attr("height", width/80)
+                    .attr("fill", "#ffc933");
+                
+                d3.select("svg")
+                    .append("text")
+                    .attr("class", "genreText")
+                    .attr("id", "folkText")
+                    .text("FOLK")
+                    .attr("text-anchor", "middle")
+                    .attr('x', width/20 + width/12)
+                    .attr('y', height/2 + width/240 - 4*(width/80))
+                    .attr("fill", "gray")
+                    .attr("font-size", width/100);    
+                
+                // --------------------------------------------------------------
+                
+                d3.select("svg")
+                    .append("rect")
+                    .attr("class", "genreButtons")
+                    .attr("id", "pop")
+                    .attr("x", width/20)
+                    .attr("y", height/2 - width/160 - 8*(width/80))
+                    .attr("width", width/80 + width/6)
+                    .attr("height", width/80)
+                    .attr("fill", "#212121");
+                
+                d3.select("svg")
+                    .append("rect")
+                    .attr("class", "genreButtons")
+                    .attr("id", "pop")
+                    .attr("x", width/20)
+                    .attr("y", height/2 - width/160 - 8*(width/80))
+                    .attr("width", width/80)
+                    .attr("height", width/80)
+                    .attr("fill", "#33d4ff");   
+                
+                d3.select("svg")
+                    .append("text")
+                    .attr("class", "genreText")
+                    .attr("id", "popText")
+                    .text("POP")
+                    .attr("text-anchor", "middle")
+                    .attr('x', width/20 + width/12)
+                    .attr('y', height/2 + width/240 - 8*(width/80))
+                    .attr("fill", "gray")
+                    .attr("font-size", width/100);    
+                
+                // --------------------------------------------------------------
+                
+                d3.select("svg")
+                    .append("rect")
+                    .attr("class", "genreButtons")
+                    .attr("id", "rock")
+                    .attr("x", width/20)
+                    .attr("y", height/2 - width/160 - 12*(width/80))
+                    .attr("width", width/80 + width/6)
+                    .attr("height", width/80)
+                    .attr("fill", "#212121");
+                
+                d3.select("svg")
+                    .append("rect")
+                    .attr("class", "genreButtons")
+                    .attr("id", "rock")
+                    .attr("x", width/20)
+                    .attr("y", height/2 - width/160 - 12*(width/80))
+                    .attr("width", width/80)
+                    .attr("height", width/80)
+                    .attr("fill", "#ff336d");
+               
+                d3.select("svg")
+                    .append("text")
+                    .attr("class", "genreText")
+                    .attr("id", "rockText")
+                    .text("ROCK")
+                    .attr("text-anchor", "middle")
+                    .attr('x', width/20 + width/12)
+                    .attr('y', height/2 + width/240 - 12*(width/80))
+                    .attr("fill", "gray")
+                    .attr("font-size", width/100);    
+                
+                // --------------------------------------------------------------
+                
+                d3.select("svg")
+                    .append("rect")
+                    .attr("class", "genreButtons")
+                    .attr("id", "blues")
+                    .attr("x", width/20)
+                    .attr("y", height/2 - width/160 + 4*(width/80))
+                    .attr("width", width/80 + width/6)
+                    .attr("height", width/80)
+                    .attr("fill", "#212121");
+                
+                d3.select("svg")
+                    .append("rect")
+                    .attr("class", "genreButtons")
+                    .attr("id", "blues")
+                    .attr("x", width/20)
+                    .attr("y", height/2 - width/160 + 4*(width/80))
+                    .attr("width", width/80)
+                    .attr("height", width/80)
+                    .attr("fill", "#336dff");
+                    
+                d3.select("svg")
+                    .append("text")
+                    .attr("id", "bluesText")
+                    .attr("class", "genreText")
+                    .text("BLUES")
+                    .attr("text-anchor", "middle")
+                    .attr('x', width/20 + width/12)
+                    .attr('y', height/2 + width/240 + 4*(width/80))
+                    .attr("fill", "gray")
+                    .attr("font-size", width/100);    
+                    
+                
+                // --------------------------------------------------------------
+                
+                d3.select("svg")
+                    .append("rect")
+                    .attr("class", "genreButtons")
+                    .attr("id", "rockroll")
+                    .attr("x", width/20)
+                    .attr("y", height/2 - width/160 + 8*(width/80))
+                    .attr("width", width/80 + width/6)
+                    .attr("height", width/80)
+                    .attr("fill", "#212121");
+                
+                d3.select("svg")
+                    .append("rect")
+                    .attr("class", "genreButtons")
+                    .attr("id", "rockroll")
+                    .attr("x", width/20)
+                    .attr("y", height/2 - width/160 + 8*(width/80))
+                    .attr("width", width/80)
+                    .attr("height", width/80)
+                    .attr("fill", "#ff8f33");    
+                
+                d3.select("svg")
+                    .append("text")
+                    .attr("id", "rockrollText")
+                    .attr("class", "genreText")
+                    .text("ROCK 'N ROLL")
+                    .attr("text-anchor", "middle")
+                    .attr('x', width/20 + width/12)
+                    .attr('y', height/2 + width/240 + 8*(width/80))
+                    .attr("fill", "gray")
+                    .attr("font-size", width/100);
+                    
+                // --------------------------------------------------------------
+                
+                d3.select("svg")
+                    .append("rect")
+                    .attr("class", "genreButtons")
+                    .attr("id", "other")
+                    .attr("x", width/20)
+                    .attr("y", height/2 - width/160 + 12*(width/80))
+                    .attr("width", width/80 + width/6)
+                    .attr("height", width/80)
+                    .attr("fill", "#212121");
+                
+                d3.select("svg")
+                    .append("rect")
+                    .attr("class", "genreButtons")
+                    .attr("id", "other")
+                    .attr("x", width/20)
+                    .attr("y", height/2 - width/160 + 12*(width/80))
+                    .attr("width", width/80)
+                    .attr("height", width/80)
+                    .attr("fill", "#abff33");
+                
+                
+                d3.select("svg")
+                    .append("text")
+                    .attr("id", "otherText")
+                    .attr("class", "genreText")
+                    .text("OTHER")
+                    .attr("text-anchor", "middle")
+                    .attr('x', width/20 + width/12)
+                    .attr('y', height/2 + width/240 + 12*(width/80))
+                    .attr("fill", "gray")
+                    .attr("font-size", width/100);
+                
+                //------------------------------------------------------------------
+                
+                
+                //  d3.select("svg")
+                //     .append("rect")
+                //     .attr("class", "genreButtons")
+                //     .attr("id", "all")
+                //     .attr("x", width/20)
+                //     .attr("y", height/2 - width/160 + 16*(width/80))
+                //     .attr("width", width/80 + width/6)
+                //     .attr("height", width/80)
+                //     .attr("fill", "#212121");
+                
+                
+                // d3.select("svg")
+                //     .append("text")
+                //     .attr("id", "allText")
+                //     .attr("class", "genreText")
+                //     .text("ALL GENRES")
+                //     .attr("text-anchor", "middle")
+                //     .attr('x', width/20 + width/12)
+                //     .attr('y', height/2 + width/240 + 16*(width/80))
+                //     .attr("fill", "gray")
+                //     .attr("font-size", width/100);
+                
+                // ----------------------------------------------------------------    
+                    
+                d3.select("svg")
+                    .append("line")
+                    .attr("class", "genreButtons")
+                    .attr("x1", width/20)
+                    .attr("y1", height/2 - width/160 - 13.5*(width/80))
+                    .attr("x2", width/20 + width/6)
+                    .attr("y2", height/2 - width/160 - 13.5*(width/80))
+                    .attr("stroke", "#3d3d3d")
+                    .attr("stroke-width", 0.5);    
+                
+                d3.select("svg")
+                    .append("line")
+                    .attr("class", "genreButtons")
+                    .attr("x1", width/20)
+                    .attr("y1", height/2 - width/160 - 9.5*(width/80))
+                    .attr("x2", width/20 + width/6)
+                    .attr("y2", height/2 - width/160 - 9.5*(width/80))
+                    .attr("stroke", "#3d3d3d")
+                    .attr("stroke-width", 0.5);
+                
+                
+                d3.select("svg")
+                    .append("line")
+                    .attr("class", "genreButtons")
+                    .attr("x1", width/20)
+                    .attr("y1", height/2 - width/160 - 5.5*(width/80))
+                    .attr("x2", width/20 + width/6)
+                    .attr("y2", height/2 - width/160 - 5.5*(width/80))
+                    .attr("stroke", "#3d3d3d")
+                    .attr("stroke-width", 0.5);
+                
+                d3.select("svg")
+                    .append("line")
+                    .attr("class", "genreButtons")
+                    .attr("x1", width/20)
+                    .attr("y1", height/2 - width/160 - 1.5*(width/80))
+                    .attr("x2", width/20 + width/6)
+                    .attr("y2", height/2 - width/160 - 1.5*(width/80))
+                    .attr("stroke", "#3d3d3d")
+                    .attr("stroke-width", 0.5);    
+                
+                d3.select("svg")
+                    .append("line")
+                    .attr("class", "genreButtons")
+                    .attr("x1", width/20)
+                    .attr("y1", height/2 - width/160 + 14.5*(width/80))
+                    .attr("x2", width/20 + width/6)
+                    .attr("y2", height/2 - width/160 + 14.5*(width/80))
+                    .attr("stroke", "#3d3d3d")
+                    .attr("stroke-width", 0.5);    
+                
+                
+                d3.select("svg")
+                    .append("line")
+                    .attr("class", "genreButtons")
+                    .attr("x1", width/20)
+                    .attr("y1", height/2 - width/160 + 10.5*(width/80))
+                    .attr("x2", width/20 + width/6)
+                    .attr("y2", height/2 - width/160 + 10.5*(width/80))
+                    .attr("stroke", "#3d3d3d")
+                    .attr("stroke-width", 0.5);
+                
+                d3.select("svg")
+                    .append("line")
+                    .attr("class", "genreButtons")
+                    .attr("x1", width/20)
+                    .attr("y1", height/2 - width/160 + 6.5*(width/80))
+                    .attr("x2", width/20 + width/6)
+                    .attr("y2", height/2 - width/160 + 6.5*(width/80))
+                    .attr("stroke", "#3d3d3d")
+                    .attr("stroke-width", 0.5);
+                
+                d3.select("svg")
+                    .append("line")
+                    .attr("class", "genreButtons")
+                    .attr("x1", width/20)
+                    .attr("y1", height/2 - width/160 + 2.5*(width/80))
+                    .attr("x2", width/20 + width/6)
+                    .attr("y2", height/2 - width/160 + 2.5*(width/80))
+                    .attr("stroke", "#3d3d3d")
+                    .attr("stroke-width", 0.5);    
+                    
+                d3.select("svg")
+                    .append("line")
+                    .attr("class", "genreButtons")
+                    .attr("x1", width/20)
+                    .attr("y1", height/2 - width/160 + 18.5*(width/80))
+                    .attr("x2", width/20 + width/6)
+                    .attr("y2", height/2 - width/160 + 18.5*(width/80))
+                    .attr("stroke", "#3d3d3d")
+                    .attr("stroke-width", 0.5);    
+                
+                
+               d3.select("#psychedelic").on("mouseover", function(){ 
+                   d3.select("#psychedelicText").attr("fill", "#f933ff");
+                   d3.select("#folkText").attr("fill", "gray");
+                   d3.select("#popText").attr("fill", "gray");
+                   d3.select("#rockText").attr("fill", "gray");
+                   d3.select("#bluesText").attr("fill", "gray");
+                   d3.select("#rockrollText").attr("fill", "gray");
+                   d3.select("#otherText").attr("fill", "gray");
+                   d3.select("#allText").attr("fill", "gray");
+                   
+                   change("psychedelic"); });
+               d3.select("#folk").on("mouseover", function(){ 
+                   d3.select("#psychedelicText").attr("fill", "gray");
+                   d3.select("#folkText").attr("fill", "#ffc933");
+                   d3.select("#popText").attr("fill", "gray");
+                   d3.select("#rockText").attr("fill", "gray");
+                   d3.select("#bluesText").attr("fill", "gray");
+                   d3.select("#rockrollText").attr("fill", "gray");
+                   d3.select("#otherText").attr("fill", "gray");
+                   d3.select("#allText").attr("fill", "gray");
+                   
+                   change("folk"); });
+               d3.select("#pop").on("mouseover", function(){ 
+                   d3.select("#psychedelicText").attr("fill", "gray");
+                   d3.select("#folkText").attr("fill", "gray");
+                   d3.select("#popText").attr("fill", "#33d4ff");
+                   d3.select("#rockText").attr("fill", "gray");
+                   d3.select("#bluesText").attr("fill", "gray");
+                   d3.select("#rockrollText").attr("fill", "gray");
+                   d3.select("#otherText").attr("fill", "gray");
+                   d3.select("#allText").attr("fill", "gray");
+                   
+                   change("pop"); });
+               d3.select("#rock").on("mouseover", function(){ 
+                   d3.select("#psychedelicText").attr("fill", "gray");
+                   d3.select("#folkText").attr("fill", "gray");
+                   d3.select("#popText").attr("fill", "gray");
+                   d3.select("#rockText").attr("fill", "#ff336d");
+                   d3.select("#bluesText").attr("fill", "gray");
+                   d3.select("#rockrollText").attr("fill", "gray");
+                   d3.select("#otherText").attr("fill", "gray");
+                   d3.select("#allText").attr("fill", "gray");
+                   
+                   change("rock"); });
+               d3.select("#blues").on("mouseover", function(){ 
+                   
+                   d3.select("#psychedelicText").attr("fill", "gray");
+                   d3.select("#folkText").attr("fill", "gray");
+                   d3.select("#popText").attr("fill", "gray");
+                   d3.select("#rockText").attr("fill", "gray");
+                   d3.select("#bluesText").attr("fill", "#336dff");
+                   d3.select("#rockrollText").attr("fill", "gray");
+                   d3.select("#otherText").attr("fill", "gray");
+                   d3.select("#allText").attr("fill", "gray");
+                   
+                   change("blues"); });
+               d3.select("#rockroll").on("mouseover", function(){ 
+                   
+                   d3.select("#psychedelicText").attr("fill", "gray");
+                   d3.select("#folkText").attr("fill", "gray");
+                   d3.select("#popText").attr("fill", "gray");
+                   d3.select("#rockText").attr("fill", "gray");
+                   d3.select("#bluesText").attr("fill", "gray");
+                   d3.select("#rockrollText").attr("fill", "#ff8f33");
+                   d3.select("#otherText").attr("fill", "gray");
+                   d3.select("#allText").attr("fill", "gray");
+                   
+                   change("rockroll"); });
+               d3.select("#other").on("mouseover", function(){ 
+                   
+                   d3.select("#psychedelicText").attr("fill", "gray");
+                   d3.select("#folkText").attr("fill", "gray");
+                   d3.select("#popText").attr("fill", "gray");
+                   d3.select("#rockText").attr("fill", "gray");
+                   d3.select("#bluesText").attr("fill", "gray");
+                   d3.select("#rockrollText").attr("fill", "gray");
+                   d3.select("#otherText").attr("fill", "#abff33");
+                   d3.select("#allText").attr("fill", "gray");
+                   
+                   change("other"); });
+            //   d3.select("#all").on("mouseover", function(){ 
+                   
+            //       d3.select("#psychedelicText").attr("fill", "gray");
+            //       d3.select("#folkText").attr("fill", "gray");
+            //       d3.select("#popText").attr("fill", "gray");
+            //       d3.select("#rockText").attr("fill", "gray");
+            //       d3.select("#bluesText").attr("fill", "gray");
+            //       d3.select("#rockrollText").attr("fill", "gray");
+            //       d3.select("#otherText").attr("fill", "gray");
+            //       d3.select("#allText").attr("fill", "white");
+                   
+            //       begin(); });    
+           }
+           
+           function begin(){
+                
+            d3.select("#subText").remove();
+                  
+                  
+              g.append("path")
+                  .attr("d", arc1)
+                  .attr("class", "segment1")
+                  .style("fill", function(d){ return d.data.rock; })
+                  .style("stroke", "#212121")
+                  .style("stroke-width", 1)
+                  .attr("opacity", 1)
+                
+              g.append("path")
+                  .attr("d", arc2)
+                  .attr("class", "segment2")
+                  .style("fill", function(d){ return d.data.pop; })
+                  .style("stroke", "#212121")
+                  .style("stroke-width", 1)
+                  .attr("opacity", 1)
+                  
+              g.append("path")
+                  .attr("d", arc3)
+                  .attr("class", "segment3")
+                  .style("fill", function(d){ return d.data.folk; })
+                  .style("stroke", "#212121")
+                  .style("stroke-width", 1);
+              
+               g.append("path")
+                  .attr("d", arc4)
+                  .attr("class", "segment4")
+                  .style("fill", function(d){ return d.data.psychedelic; })
+                  .style("stroke", "#212121")
+                  .style("stroke-width", 1);
+              
+               g.append("path")
+                  .attr("d", arc5)
+                  .attr("class", "segment5")
+                  .style("fill", function(d){ return d.data.blues; })
+                  .style("stroke", "#212121")
+                  .style("stroke-width", 1);
+                  
+               g.append("path")
+                  .attr("d", arc6)
+                  .attr("class", "segment6")
+                  .style("fill", function(d){ return d.data.rockroll; })
+                  .style("stroke", "#212121")
+                  .style("stroke-width", 1);
+                  
+               g.append("path")
+                  .attr("d", arc7)
+                  .attr("class", "segment7")
+                  .style("fill", function(d){ return d.data.other; })
+                  .style("stroke", "#212121")
+                  .style("stroke-width", 1); 
+                 
+                  
+           var hoverIn =  g.on("mouseover", function(d){
+               
+                              d3.selectAll(".yearHeading").remove();
+                              d3.selectAll(".yearClick").remove();
+                              d3.selectAll(".yearBody").remove();
+                              d3.select("#subText").remove();                   
+                              r = r - 30;
+                                  
+                              arc1 = d3.svg.arc()
+                                    .outerRadius(r + 20)
+                                    .innerRadius(r);
+                              arc2 = d3.svg.arc()
+                                    .outerRadius(r + 40)
+                                    .innerRadius(r + 20);
+                              arc3 = d3.svg.arc()
+                                    .outerRadius(r + 60)
+                                    .innerRadius(r + 40);
+                              arc4 = d3.svg.arc()
+                                    .outerRadius(r + 80)
+                                    .innerRadius(r + 60);
+                              arc5 = d3.svg.arc()
+                                    .outerRadius(r + 100)
+                                    .innerRadius(r + 80);
+                              arc6 = d3.svg.arc()
+                                    .outerRadius(r + 120)
+                                    .innerRadius(r + 100);      
+                              arc7 = d3.svg.arc()
+                                    .outerRadius(r + 140)
+                                    .innerRadius(r + 120);
+                                    
+                            d3.select(this).selectAll(".segment1").attr("d", arc1).style("stroke-width", 2);
+                            d3.select(this).selectAll(".segment2").attr("d", arc2).style("stroke-width", 2);
+                            d3.select(this).selectAll(".segment3").attr("d", arc3).style("stroke-width", 2);
+                            d3.select(this).selectAll(".segment4").attr("d", arc4).style("stroke-width", 2);
+                            d3.select(this).selectAll(".segment5").attr("d", arc5).style("stroke-width", 2);
+                            d3.select(this).selectAll(".segment6").attr("d", arc6).style("stroke-width", 2);
+                            d3.select(this).selectAll(".segment7").attr("d", arc7).style("stroke-width", 2);
+                            
+                            d3.select("#mainText")
+                                .remove();
+                            
+                            
+                            d3.select("svg")
+                                .append("text")
+                                .attr("class", "songName")
+                                .text(d.data.songName)
+                                .attr('x', width/2)
+                                .attr('y', height/2)
+                                .attr("text-anchor", "middle")
+                                .attr("fill", "white");
+                            
+                            
+                            d3.select("svg")
+                                .append("text")
+                                .attr("class", "songDetails")
+                                .text("album: " + d.data.Album)
+                                .attr('x', width/2)
+                                .attr('y', height/2 + 40)
+                                .attr("text-anchor", "middle")
+                                .attr("fill", "white");
+                                
+                            d3.select("svg")
+                                .append("text")
+                                .attr("class", "songDetails")
+                                .text("year: " + d.data.year)
+                                .attr('x', width/2)
+                                .attr('y', height/2 + 55)
+                                .attr("text-anchor", "middle")
+                                .attr("fill", "white");
+                                
+                            d3.select("svg")
+                                .append("text")
+                                .attr("class", "songDetails")
+                                .text("song writers: " + d.data.songWriters)
+                                .attr('x', width/2)
+                                .attr('y', height/2 + 70)
+                                .attr("text-anchor", "middle")
+                                .attr("fill", "white");
+                                
+                            }); 
+
+                            
+           var hoverOut = g.on("mouseout", function(d){
+             
+                      r = r + 30;  
+                        
+                       arc1 = d3.svg.arc()
+                                      .outerRadius(r + 10) 
+                                      .innerRadius(r);
+                       arc2 = d3.svg.arc()
+                                      .outerRadius(r + 20)
+                                      .innerRadius(r + 10);
+                       arc3 = d3.svg.arc()
+                                      .outerRadius(r + 30)
+                                      .innerRadius(r + 20); 
+                       arc4 = d3.svg.arc()
+                                      .outerRadius(r + 40)
+                                      .innerRadius(r + 30);
+                       arc5 = d3.svg.arc()
+                                      .outerRadius(r + 50)
+                                      .innerRadius(r + 40);
+                       arc6 = d3.svg.arc()
+                                      .outerRadius(r + 60)
+                                      .innerRadius(r + 50);
+                       arc7 = d3.svg.arc()
+                                      .outerRadius(r + 70)
+                                      .innerRadius(r + 60);
+                                      
+                      d3.select(this).selectAll(".segment1").attr("d", arc1).style("stroke", "#212121").style("stroke-width", 1);
+                      d3.select(this).selectAll(".segment2").attr("d", arc2).style("stroke", "#212121").style("stroke-width", 1);
+                      d3.select(this).selectAll(".segment3").attr("d", arc3).style("stroke", "#212121").style("stroke-width", 1);
+                      d3.select(this).selectAll(".segment4").attr("d", arc4).style("stroke", "#212121").style("stroke-width", 1);
+                      d3.select(this).selectAll(".segment5").attr("d", arc5).style("stroke", "#212121").style("stroke-width", 1);
+                      d3.select(this).selectAll(".segment6").attr("d", arc6).style("stroke", "#212121").style("stroke-width", 1);
+                      d3.select(this).selectAll(".segment7").attr("d", arc7).style("stroke", "#212121").style("stroke-width", 1); 
+                      
+                      d3.select(".songName").remove();
+                      d3.selectAll(".songDetails").remove();
+
+           }) ;  
+            } 
+            
+           function createTimeAxis(){
+              
+            var arcInner = d3.svg.arc()
+                                .outerRadius(r + 115) 
+                                .innerRadius(r + 114);
+            
+            var arcOuter = d3.svg.arc()
+                                .outerRadius(r + 125) 
+                                .innerRadius(r + 124); 
+                                
+            var arcMid =  d3.svg.arc()
+                                .outerRadius(r + 124) 
+                                .innerRadius(r + 115);                   
+            
+            var arcCover =  d3.svg.arc()
+                                .outerRadius(r + 70) 
+                                .innerRadius(r);
+            
+              d3.csv("beatles-data-load-v2.csv", function(error, data) {
+              
+                var svg = d3.select("#svg")
+                          .attr("width", width)
+                          .attr("height", height)
+                        .append("g")
+                          .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")"); 
+                
+                var pie = d3.layout.pie()
+                                    .sort(null)
+                                    .value(function() { return 10; });
+            
+                var g = svg.selectAll(".arc")
+                                .data(pie(data))
+                                .enter().append("g")
+                                .attr("class", "arc");  
+                                
+                g.append("path")
+                  .attr("d", arcInner)
+                  .attr("class", "axisInner")
+                  .style("fill", "#76844a");
+                  
+                g.append("path")
+                  .attr("d", arcOuter)
+                  .attr("class", "axisOuter")
+                  .style("fill", "#76844a");  
+                
+                var counter = 0;
+               
+                 var hoverIn =  g.on("mouseover", function(d){
+                    
+                    d3.selectAll("#mainText").remove(); 
+                    d3.selectAll(".yearHeading").remove();
+                    d3.selectAll(".yearClick").remove();
+                    d3.selectAll(".yearBody").remove();
+                     
+                     if(counter == 0){
+                         
+                     if(d.data.year == "1958"){
+                         d3.selectAll(".axis").remove();
+                        //  changeTime("1958"); 
+                         
+                        g.append("path")
+                            .attr("class", "axis")
+                            .style("stroke", "#76844a")
+                            .style("stroke-width", function(d){ if(String(d.data.year) == '1958'){ return 1;}else{return 0;} })
+                            .attr("d", arcMid)
+                            .style("fill", function(d){ if(String(d.data.year) == '1958'){ return '#76844a';}else{return '#212121';} });                
+                        
+                         
+                    }else if(d.data.year == "1959"){
+                        d3.selectAll(".axis").remove();
+                       
+                        g.append("path")
+                            .attr("class", "axis")
+                            .style("stroke", "#76844a")
+                            .style("stroke-width", function(d){ if(String(d.data.year) == '1959'){ return 1;}else{return 0;} })
+                            .attr("d", arcMid)
+                            .style("fill", function(d){ if(String(d.data.year) == '1959'){ return '#76844a';}else{return '#212121';} });                
+                   
+                    }else if(d.data.year == "1960"){
+                        d3.selectAll(".axis").remove();
+                        
+                        g.append("path")
+                            .attr("class", "axis")
+                            .style("stroke", "#76844a")
+                            .style("stroke-width", function(d){ if(String(d.data.year) == '1960'){ return 1;}else{return 0;} })
+                            .attr("d", arcMid)
+                            .style("fill", function(d){ if(String(d.data.year) == '1960'){ return '#76844a';}else{return '#212121';} });                
+                   
+                        d3.select("svg")
+                                .append("text")
+                                .attr("class", "yearBody")
+                                .text("August, 1960 - The group starts performing in Hamburg, ")
+                                .attr('x', width/2)
+                                .attr('y', height/2 + 50)
+                                .attr("text-anchor", "middle")
+                                .attr("fill", "white");
+                         d3.select("svg")
+                                .append("text")
+                                .attr("class", "yearBody")
+                                .text("Germany for the next two years - a chapter which honed their ")
+                                .attr('x', width/2)
+                                .attr('y', height/2 + 65)
+                                .attr("text-anchor", "middle")
+                                .attr("fill", "white");
+                         d3.select("svg")
+                                .append("text")
+                                .attr("class", "yearBody")
+                                .text("performance skills, widened their reputation, and led")
+                                .attr('x', width/2)
+                                .attr('y', height/2 + 80)
+                                .attr("text-anchor", "middle")
+                                .attr("fill", "white");  
+                         d3.select("svg")
+                                .append("text")
+                                .attr("class", "yearBody")
+                                .text("to their first recording.")
+                                .attr('x', width/2)
+                                .attr('y', height/2 + 95)
+                                .attr("text-anchor", "middle")
+                                .attr("fill", "white");        
+                                
+                    }else if(d.data.year == "1961"){
+                        d3.selectAll(".axis").remove();
+                        
+                        g.append("path")
+                            .attr("class", "axis")
+                            .style("stroke", "#76844a")
+                            .style("stroke-width", function(d){ if(String(d.data.year) == '1961'){ return 1;}else{return 0;} })
+                            .attr("d", arcMid)
+                            .style("fill", function(d){ if(String(d.data.year) == '1961'){ return '#76844a';}else{return '#212121';} });                
+                        
+                        
+                    }else if(d.data.year == "1962"){
+                        d3.selectAll(".axis").remove();
+                        
+                        g.append("path")
+                            .attr("class", "axis")
+                            .style("stroke", "#76844a")
+                            .style("stroke-width", function(d){ if(String(d.data.year) == '1962'){ return 1;}else{return 0;} })
+                            .attr("d", arcMid)
+                            .style("fill", function(d){ if(String(d.data.year) == '1962'){ return '#76844a';}else{return '#212121';} });                
+                   
+                    }else if(d.data.year == "1963"){
+                        d3.selectAll(".axis").remove();
+                        // changeTime("1963");
+                        // g.append("path")
+                        //     .attr("class", "axis")
+                        //     .attr("d", arcCover)
+                        //     .style("fill", function(d){ if(String(d.data.year) != '1963'){ return '#212121';}; })
+                        //     .style("opacity",  function(d){ if(String(d.data.year) == '1963'){ return 0;}else{return 0.1;} })
+                         
+                        g.append("path")
+                            .attr("class", "axis")
+                            .style("stroke", "#76844a")
+                            .style("stroke-width", function(d){ if(String(d.data.year) == '1963'){ return 1;}else{return 0;} })
+                            .attr("d", arcMid)
+                            .style("fill", function(d){ if(String(d.data.year) == '1963'){ return '#76844a';}else{return '#212121';} });                
+                        
+                        d3.select("svg")
+                                .append("text")
+                                .attr("class", "yearBody")
+                                .text("January, 1963 - The group records their first")
+                                .attr('x', width/2)
+                                .attr('y', height/2 + 50)
+                                .attr("text-anchor", "middle")
+                                .attr("fill", "white");
+                         d3.select("svg")
+                                .append("text")
+                                .attr("class", "yearBody")
+                                .text("#1 hit single in the UK - 'Please Please Me'")
+                                .attr('x', width/2)
+                                .attr('y', height/2 + 65)
+                                .attr("text-anchor", "middle")
+                                .attr("fill", "white");
+                        
+                    }else if(d.data.year == "1964"){
+                        d3.selectAll(".axis").remove();
+                        // changeTime("1964");
+                        // g.append("path")
+                        //     .attr("class", "axis")
+                        //     .attr("d", arcCover)
+                        //     .style("fill", function(d){ if(String(d.data.year) != '1964'){ return '#212121';}; })
+                        //     .style("opacity",  function(d){ if(String(d.data.year) == '1964'){ return 0;}else{return 0.1;} })
+                         
+                        g.append("path")
+                            .attr("class", "axis")
+                            .style("stroke", "#76844a")
+                            .style("stroke-width", function(d){ if(String(d.data.year) == '1964'){ return 1;}else{return 0;} })
+                            .attr("d", arcMid)
+                            .style("fill", function(d){ if(String(d.data.year) == '1964'){ return '#76844a';}else{return '#212121';} });                
+                        
+                        d3.select("svg")
+                                .append("text")
+                                .attr("class", "yearBody")
+                                .text("February, 1964 - Arrival in the US at JFK airport.")
+                                .attr('x', width/2)
+                                .attr('y', height/2 + 50)
+                                .attr("text-anchor", "middle")
+                                .attr("fill", "white");
+                         d3.select("svg")
+                                .append("text")
+                                .attr("class", "yearBody")
+                                .text("Make their first appearance on the Ed Sullivan Show.")
+                                .attr('x', width/2)
+                                .attr('y', height/2 + 65)
+                                .attr("text-anchor", "middle")
+                                .attr("fill", "white");
+                         d3.select("svg")
+                                .append("text")
+                                .attr("class", "yearBody")
+                                .text("73 million television viewers, 40 per cent of ")
+                                .attr('x', width/2)
+                                .attr('y', height/2 + 80)
+                                .attr("text-anchor", "middle")
+                                .attr("fill", "white");  
+                         d3.select("svg")
+                                .append("text")
+                                .attr("class", "yearBody")
+                                .text("the US population tune in to watch.")
+                                .attr('x', width/2)
+                                .attr('y', height/2 + 95)
+                                .attr("text-anchor", "middle")
+                                .attr("fill", "white");
+                                
+                    }else if(d.data.year == "1965"){
+                        d3.selectAll(".axis").remove();
+                        // changeTime("1965");
+                        g.append("path")
+                            .attr("class", "axis")
+                            .style("stroke", "#76844a")
+                            .style("stroke-width", function(d){ if(String(d.data.year) == '1965'){ return 1;}else{return 0;} })
+                            .attr("d", arcMid)
+                            .style("fill", function(d){ if(String(d.data.year) == '1965'){ return '#76844a';}else{return '#212121';} });                
+                        
+                        d3.select("svg")
+                                .append("text")
+                                .attr("class", "yearBody")
+                                .text("August, 1965 - Record breaking concert at Shea stadium,")
+                                .attr('x', width/2)
+                                .attr('y', height/2 + 50)
+                                .attr("text-anchor", "middle")
+                                .attr("fill", "white");
+                         d3.select("svg")
+                                .append("text")
+                                .attr("class", "yearBody")
+                                .text("NYC, with 55,000 fans attending.")
+                                .attr('x', width/2)
+                                .attr('y', height/2 + 65)
+                                .attr("text-anchor", "middle")
+                                .attr("fill", "white");
+                        
+                        
+                    }else if(d.data.year == "1966"){
+                        d3.selectAll(".axis").remove();
+                        // changeTime("1966");
+                        g.append("path")
+                            .attr("class", "axis")
+                            .style("stroke", "#76844a")
+                            .style("stroke-width", function(d){ if(String(d.data.year) == '1966'){ return 1;}else{return 0;} })
+                            .attr("d", arcMid)
+                            .style("fill", function(d){ if(String(d.data.year) == '1966'){ return '#76844a';}else{return '#212121';} });                
+                        
+                        d3.select("svg")
+                                .append("text")
+                                .attr("class", "yearBody")
+                                .text("February, 1966 - The 'more popular than Jesus' controversy occurs.")
+                                .attr('x', width/2)
+                                .attr('y', height/2 + 50)
+                                .attr("text-anchor", "middle")
+                                .attr("fill", "white");
+                         d3.select("svg")
+                                .append("text")
+                                .attr("class", "yearBody")
+                                .text("The group completes its last commercial tour.")
+                                .attr('x', width/2)
+                                .attr('y', height/2 + 65)
+                                .attr("text-anchor", "middle")
+                                .attr("fill", "white");
+                        
+                        
+                    }else if(d.data.year == "1967"){
+                        d3.selectAll(".axis").remove();
+                        // changeTime("1967");
+                        g.append("path")
+                            .attr("class", "axis")
+                            .style("stroke", "#76844a")
+                            .style("stroke-width", function(d){ if(String(d.data.year) == '1967'){ return 1;}else{return 0;} })
+                            .attr("d", arcMid)
+                            .style("fill", function(d){ if(String(d.data.year) == '1967'){ return '#76844a';}else{return '#212121';} });                
+                        
+                        d3.select("svg")
+                                .append("text")
+                                .attr("class", "yearBody")
+                                .text("June, 1967 - Release Sgt. Pepper's Lonely Hearts Club Band.")
+                                .attr('x', width/2)
+                                .attr('y', height/2 + 50)
+                                .attr("text-anchor", "middle")
+                                .attr("fill", "white");
+                         d3.select("svg")
+                                .append("text")
+                                .attr("class", "yearBody")
+                                .text("Their best-selling album of all time. spends 27 weeks")
+                                .attr('x', width/2)
+                                .attr('y', height/2 + 65)
+                                .attr("text-anchor", "middle")
+                                .attr("fill", "white");
+                         d3.select("svg")
+                                .append("text")
+                                .attr("class", "yearBody")
+                                .text("on the top of the album charts in the UK. ")
+                                .attr('x', width/2)
+                                .attr('y', height/2 + 80)
+                                .attr("text-anchor", "middle")
+                                .attr("fill", "white");  
+                         
+                        
+                    }else if(d.data.year == "1968"){
+                        d3.selectAll(".axis").remove();
+                        // changeTime("1968");
+                        g.append("path")
+                            .attr("class", "axis")
+                            .style("stroke", "#76844a")
+                            .style("stroke-width", function(d){ if(String(d.data.year) == '1968'){ return 1;}else{return 0;} })
+                            .attr("d", arcMid)
+                            .style("fill", function(d){ if(String(d.data.year) == '1968'){ return '#76844a';}else{return '#212121';} });                
+                        
+                        d3.select("svg")
+                                .append("text")
+                                .attr("class", "yearBody")
+                                .text("February, 1968 - Arrival in India to study meditation")
+                                .attr('x', width/2)
+                                .attr('y', height/2 + 50)
+                                .attr("text-anchor", "middle")
+                                .attr("fill", "white");
+                         d3.select("svg")
+                                .append("text")
+                                .attr("class", "yearBody")
+                                .text("and Indian religion")
+                                .attr('x', width/2)
+                                .attr('y', height/2 + 65)
+                                .attr("text-anchor", "middle")
+                                .attr("fill", "white");
+                         
+                        
+                    }else if(d.data.year == "1969"){
+                        d3.selectAll(".axis").remove();
+                        // changeTime("1969");
+                        g.append("path")
+                            .attr("class", "axis")
+                            .style("stroke", "#76844a")
+                            .style("stroke-width", function(d){ if(String(d.data.year) == '1969'){ return 1;}else{return 0;} })
+                            .attr("d", arcMid)
+                            .style("fill", function(d){ if(String(d.data.year) == '1969'){ return '#76844a';}else{return '#212121';} });                
+                   
+                        d3.select("svg")
+                                .append("text")
+                                .attr("class", "yearBody")
+                                .text("January, 1969 - Rooftop performance at Abbey Road Studios.")
+                                .attr('x', width/2)
+                                .attr('y', height/2 + 50)
+                                .attr("text-anchor", "middle")
+                                .attr("fill", "white");
+                         d3.select("svg")
+                                .append("text")
+                                .attr("class", "yearBody")
+                                .text("Last public performance.")
+                                .attr('x', width/2)
+                                .attr('y', height/2 + 65)
+                                .attr("text-anchor", "middle")
+                                .attr("fill", "white");
+                        
+                    }else if(d.data.year == "1970"){
+                        d3.selectAll(".axis").remove();
+                        // changeTime("1969");
+                        g.append("path")
+                            .attr("class", "axis")
+                            .style("stroke", "#76844a")
+                            .style("stroke-width", function(d){ if(String(d.data.year) == '1970'){ return 1;}else{return 0;} })
+                            .attr("d", arcMid)
+                            .style("fill", function(d){ if(String(d.data.year) == '1970'){ return '#76844a';}else{return '#212121';} });                
+                        
+                        d3.select("svg")
+                                .append("text")
+                                .attr("class", "yearBody")
+                                .text("December, 1970 - McCartney files suit for the dissolution of")
+                                .attr('x', width/2)
+                                .attr('y', height/2 + 50)
+                                .attr("text-anchor", "middle")
+                                .attr("fill", "white");
+                         d3.select("svg")
+                                .append("text")
+                                .attr("class", "yearBody")
+                                .text("the Beatles' contractual partnership.")
+                                .attr('x', width/2)
+                                .attr('y', height/2 + 65)
+                                .attr("text-anchor", "middle")
+                                .attr("fill", "white");
+                        
+                    }
+                     
+                     d3.select("svg")
+                                .append("text")
+                                .attr("class", "yearHeading")
+                                .text(d.data.year)
+                                .attr('x', width/2)
+                                .attr('y', height/2)
+                                .attr("text-anchor", "middle")
+                                .attr("fill", "white")
+                                .attr("font-family", "'Nunito Sans', sans-serif")
+                                .attr("font-size", width/40);
+                    
+                     }
+                    
+                 
+                //  var hoverOut = g.on("mouseout", function(d){
+                //     d3.selectAll(".yearHeading").remove();
+                //     d3.selectAll(".yearClick").remove();
+                //  })      
+                 
+                 var onclick = g.on("click", function(){ 
+                     
+                    d3.selectAll(".yearHeading").remove();
+                    d3.selectAll(".yearClick").remove();
+                    d3.selectAll(".yearBody").remove();
+                    
+                    
+                    d3.select("svg")
+                                .append("text")
+                                .attr("class", "yearHeading")
+                                .text("The Beatles - " + d.data.year)
+                                .attr('x', width/2)
+                                .attr('y', width/2)
+                                .attr("text-anchor", "middle")
+                                .attr("fill", "white");
+                    
+                    if(d.data.year == "1960"){
+                        
+                         d3.select("svg")
+                                .append("text")
+                                .attr("class", "yearBody")
+                                .text("August, 1960 - The group starts performing in Hamburg, Germany")
+                                .attr('x', width/2)
+                                .attr('y', width/2 + 50)
+                                .attr("text-anchor", "middle")
+                                .attr("fill", "white");
+                         d3.select("svg")
+                                .append("text")
+                                .attr("class", "yearBody")
+                                .text("for the next two years - a chapter which honed their ")
+                                .attr('x', width/2)
+                                .attr('y', width/2 + 65)
+                                .attr("text-anchor", "middle")
+                                .attr("fill", "white");
+                         d3.select("svg")
+                                .append("text")
+                                .attr("class", "yearBody")
+                                .text("performance skills, widened their reputation, and led")
+                                .attr('x', width/2)
+                                .attr('y', width/2 + 80)
+                                .attr("text-anchor", "middle")
+                                .attr("fill", "white");  
+                         d3.select("svg")
+                                .append("text")
+                                .attr("class", "yearBody")
+                                .text("to their first recording.")
+                                .attr('x', width/2)
+                                .attr('y', width/2 + 95)
+                                .attr("text-anchor", "middle")
+                                .attr("fill", "white");        
+                                
+                    }            
+                    
+                    
+                    
+                     
+                     if(d.data.year == "1958"){changeTime("1958");}
+                     else if(d.data.year == "1959"){changeTime("1959");}
+                     else if(d.data.year == "1960"){changeTime("1960");}
+                     else if(d.data.year == "1961"){changeTime("1961");}
+                     else if(d.data.year == "1962"){changeTime("1962");}
+                     else if(d.data.year == "1963"){changeTime("1963");}
+                     else if(d.data.year == "1964"){changeTime("1964");}
+                     else if(d.data.year == "1965"){changeTime("1965");}
+                     else if(d.data.year == "1966"){changeTime("1966");}
+                     else if(d.data.year == "1967"){changeTime("1967");}
+                     else if(d.data.year == "1968"){changeTime("1968");}
+                     else if(d.data.year == "1969"){changeTime("1969");}
+                     
+                 })
+                     
+                 });
+               
+                  
+              });
+               
+           }
+           
+           function change(genre){
+               
+               songDurationCounter = 0;
+                       d3.select("#songDuration").attr("stroke", "gray").attr("stroke-width", 1);
+                       d3.select("#songDurationText").attr("fill", "gray");
+               
+                d3.selectAll(".yearHeading").remove();
+                d3.selectAll(".yearClick").remove();
+                d3.selectAll(".yearBody").remove();
+                d3.select("#subText").remove();
+               
+                d3.selectAll(".segment1").remove();
+                d3.selectAll(".segment2").remove();
+                d3.selectAll(".segment3").remove();
+                d3.selectAll(".segment4").remove();
+                d3.selectAll(".segment5").remove();
+                d3.selectAll(".segment6").remove();
+                d3.selectAll(".segment7").remove();
+                d3.selectAll(".segment8").remove();
+                d3.selectAll(".segment9").remove();
+                d3.selectAll(".segment10").remove();
+                d3.selectAll(".segment11").remove();
+                d3.selectAll(".segment12").remove();
+                d3.selectAll(".segment13").remove();
+                d3.selectAll(".segment14").remove();
+                d3.selectAll(".segment15").remove();
+                d3.selectAll("#mainText").remove();
+                // d3.selectAll(".segmentUS").remove(); 
+                
+                d3.select("svg")
+                    .append("text")
+                    .attr("id", "mainText")
+                    .text(genre + " influence")
+                    .attr("text-anchor", "middle")
+                    .attr('x', width/2)
+                    .attr('y', height/2)
+                    .attr("fill", "white");
+                
+                var arc1new = d3.svg.arc()
+                                .outerRadius(r + 70) 
+                                .innerRadius(r);
+               
+               d3.csv("beatles-data-load-v2.csv", function(error, data) {
+                   
+                     var svg = d3.select("#svg")
+                          .attr("width", width)
+                          .attr("height", height)
+                        .append("g")
+                          .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
+                    
+                    var arc1new = d3.svg.arc()
+                                .outerRadius(r + 70) 
+                                .innerRadius(r);
+                                
+                    
+                    var pie = d3.layout.pie()
+                                    .sort(null)
+                                    .value(function() { return 10; });
+            
+                    var g = svg.selectAll(".arc")
+                                    .data(pie(data))
+                                    .enter().append("g")
+                                    .attr("class", "arc");
+                    
+                    if(genre == "rock"){
+                        g.append("path")
+                            .attr("d", arc1new)
+                            .attr("class", "segment1")
+                            .style("fill", function(d){ return d.data.rock; })
+                            .style("stroke", "#212121")
+                            .style("stroke-width", 1);
+                    }else if(genre == "pop"){
+                        g.append("path")
+                            .attr("d", arc1new)
+                            .attr("class", "segment1")
+                            .style("fill", function(d){ return d.data.pop; })
+                            .style("stroke", "#212121")
+                            .style("stroke-width", 1);
+                    }else if(genre == "folk"){
+                        g.append("path")
+                            .attr("d", arc1new)
+                            .attr("class", "segment1")
+                            .style("fill", function(d){ return d.data.folk; })
+                            .style("stroke", "#212121")
+                            .style("stroke-width", 1);
+                    }else if(genre == "blues"){
+                        g.append("path")
+                            .attr("d", arc1new)
+                            .attr("class", "segment1")
+                            .style("fill", function(d){ return d.data.blues; })
+                            .style("stroke", "#212121")
+                            .style("stroke-width", 1);
+                    }else if(genre == "psychedelic"){
+                        g.append("path")
+                            .attr("d", arc1new)
+                            .attr("class", "segment1")
+                            .style("fill", function(d){ return d.data.psychedelic; })
+                            .style("stroke", "#212121")
+                            .style("stroke-width", 1);
+                    }else if(genre == "rockroll"){
+                        g.append("path")
+                            .attr("d", arc1new)
+                            .attr("class", "segment1")
+                            .style("fill", function(d){ return d.data.rockroll; })
+                            .style("stroke", "#212121")
+                            .style("stroke-width", 1);
+                    }else if(genre == "other"){
+                        g.append("path")
+                            .attr("d", arc1new)
+                            .attr("class", "segment1")
+                            .style("fill", function(d){ return d.data.other; })
+                            .style("stroke", "#212121")
+                            .style("stroke-width", 1);
+                    }
+                    
+                var hoverIn =  g.on("mouseover", function(d){
+                              
+                              r = r - 30;
+                              
+                              d3.selectAll(".yearHeading").remove();
+                              d3.selectAll(".yearClick").remove();
+                              d3.selectAll(".yearBody").remove();
+                              d3.select("#subText").remove();
+                                  
+                              arc1new = d3.svg.arc()
+                                    .outerRadius(r + 140)
+                                    .innerRadius(r);
+                              
+                                    
+                            d3.select(this).selectAll(".segment1").attr("d", arc1new).style("stroke-width", 1);
+                            
+                            d3.select("#mainText")
+                                .remove();
+                            
+                            
+                            d3.select("svg")
+                                .append("text")
+                                .attr("class", "songName")
+                                .text(d.data.songName)
+                                .attr('x', width/2)
+                                .attr('y', height/2)
+                                .attr("text-anchor", "middle")
+                                .attr("fill", "white");
+                            
+                            
+                            d3.select("svg")
+                                .append("text")
+                                .attr("class", "songDetails")
+                                .text("album: " + d.data.Album)
+                                .attr('x', width/2)
+                                .attr('y', height/2 + 40)
+                                .attr("text-anchor", "middle")
+                                .attr("fill", "white");
+                                
+                            d3.select("svg")
+                                .append("text")
+                                .attr("class", "songDetails")
+                                .text("year: " + d.data.year)
+                                .attr('x', width/2)
+                                .attr('y', height/2 + 55)
+                                .attr("text-anchor", "middle")
+                                .attr("fill", "white");
+                                
+                            d3.select("svg")
+                                .append("text")
+                                .attr("class", "songDetails")
+                                .text("song writers: " + d.data.songWriters)
+                                .attr('x', width/2)
+                                .attr('y', height/2 + 70)
+                                .attr("text-anchor", "middle")
+                                .attr("fill", "white");
+                                
+                            });  
+                            
+                var hoverOut = g.on("mouseout", function(d){
+             
+                      r = r + 30;  
+                        
+                       arc1new = d3.svg.arc()
+                                      .outerRadius(r + 70) 
+                                      .innerRadius(r);
+                    
+                      d3.select(this).selectAll(".segment1").attr("d", arc1new).style("stroke", "#212121").style("stroke-width", 1);
+                    
+                      d3.select(".songName").remove();
+                      d3.selectAll(".songDetails").remove();
+
+                     }) ;             
+                    
+                });      
+           }
+           
+           function changeTime(time){
+                
+                d3.selectAll(".segment1").remove();
+                d3.selectAll(".segment2").remove();
+                d3.selectAll(".segment3").remove();
+                d3.selectAll(".segment4").remove();
+                d3.selectAll(".segment5").remove();
+                d3.selectAll(".segment6").remove();
+                d3.selectAll(".segment7").remove();
+                d3.selectAll(".segment8").remove();
+                d3.selectAll(".segment9").remove();
+                d3.selectAll(".segment10").remove();
+                d3.selectAll(".segment11").remove();
+                d3.selectAll(".segment12").remove();
+                d3.selectAll(".segment13").remove();
+                d3.selectAll(".segment14").remove();
+                d3.selectAll(".segment15").remove();
+                d3.selectAll("#mainText").remove(); 
+                d3.selectAll(".segmentUS").remove(); 
+                
+                // d3.select("svg")
+                //     .append("text")
+                //     .attr("id", "mainText")
+                //     .text("The Beatles - " + time)
+                //     .attr("text-anchor", "middle")
+                //     .attr('x', width/2)
+                //     .attr('y', height/2)
+                //     .attr("fill", "white");
+                
+                var arc1new = d3.svg.arc()
+                        .outerRadius(r + 10) 
+                        .innerRadius(r);
+              
+                var arc2new = d3.svg.arc()
+                                  .outerRadius(r + 20)
+                                  .innerRadius(r + 10);    
+                              
+                var arc3new = d3.svg.arc()
+                                  .outerRadius(r + 30)
+                                  .innerRadius(r + 20); 
+                              
+                var arc4new = d3.svg.arc()
+                                  .outerRadius(r + 40)
+                                  .innerRadius(r + 30);     
+                              
+                var arc5new = d3.svg.arc()
+                                  .outerRadius(r + 50)
+                                  .innerRadius(r + 40);
+                                  
+                var arc6new = d3.svg.arc()
+                                  .outerRadius(r + 60)
+                                  .innerRadius(r + 50);
+                                  
+                var arc7new = d3.svg.arc()
+                                  .outerRadius(r + 70)
+                                  .innerRadius(r + 60);    
+                
+                if(time == "1962"){ console.log(time);};
+                
+                
+                
+                g.append("path")
+                  .attr("d", arc1new)
+                  .attr("class", "segment1")
+                  .style("fill", function(d){ return d.data.rock; })
+                  .style("stroke", "#212121")
+                  .style("stroke-width", 1)
+                  .attr("opacity", function(d){ if(String(d.data.year) == time){ return 1;}else{return 0.1;}});
+                  
+                  
+              g.append("path")
+                  .attr("d", arc2new)
+                  .attr("class", "segment2")
+                  .style("fill", function(d){ return d.data.pop; })
+                  .style("stroke", "#212121")
+                  .style("stroke-width", 1)
+                  .attr("opacity", function(d){ if(String(d.data.year) == time){ return 1;}else{return 0.1;}});
+                  
+              g.append("path")
+                  .attr("d", arc3new)
+                  .attr("class", "segment3")
+                  .style("fill", function(d){ return d.data.folk; })
+                  .style("stroke", "#212121")
+                  .style("stroke-width", 1)
+                  .attr("opacity", function(d){ if(String(d.data.year) == time){ return 1;}else{return 0.1;}});
+              
+               g.append("path")
+                  .attr("d", arc4new)
+                  .attr("class", "segment4")
+                  .style("fill", function(d){ return d.data.psychedelic; })
+                  .style("stroke", "#212121")
+                  .style("stroke-width", 1)
+                  .attr("opacity", function(d){ if(String(d.data.year) == time){ return 1;}else{return 0.1;}});
+              
+               g.append("path")
+                  .attr("d", arc5new)
+                  .attr("class", "segment5")
+                  .style("fill", function(d){ return d.data.blues; })
+                  .style("stroke", "#212121")
+                  .style("stroke-width", 1)
+                  .attr("opacity", function(d){ if(String(d.data.year) == time){ return 1;}else{return 0.1;}});
+                  
+               g.append("path")
+                  .attr("d", arc6new)
+                  .attr("class", "segment6")
+                  .style("fill", function(d){ return d.data.rockroll; })
+                  .style("stroke", "#212121")
+                  .style("stroke-width", 1)
+                  .attr("opacity", function(d){ if(String(d.data.year) == time){ return 1;}else{return 0.1;}});
+                  
+               g.append("path")
+                  .attr("d", arc7new)
+                  .attr("class", "segment7")
+                  .style("fill", function(d){ return d.data.other; })
+                  .style("stroke", "#212121")
+                  .style("stroke-width", 1)
+                  .attr("opacity", function(d){ if(String(d.data.year) == time){ return 1;}else{return 0.1;}});
+                 
+                  
+           var hoverIn =  g.on("mouseover", function(d){
+                              
+                              r = r - 30;
+                                  
+                              arc1new = d3.svg.arc()
+                                    .outerRadius(r + 20)
+                                    .innerRadius(r);
+                              arc2new = d3.svg.arc()
+                                    .outerRadius(r + 40)
+                                    .innerRadius(r + 20);
+                              arc3new = d3.svg.arc()
+                                    .outerRadius(r + 60)
+                                    .innerRadius(r + 40);
+                              arc4new = d3.svg.arc()
+                                    .outerRadius(r + 80)
+                                    .innerRadius(r + 60);
+                              arc5new = d3.svg.arc()
+                                    .outerRadius(r + 100)
+                                    .innerRadius(r + 80);
+                              arc6new = d3.svg.arc()
+                                    .outerRadius(r + 120)
+                                    .innerRadius(r + 100);      
+                              arc7new = d3.svg.arc()
+                                    .outerRadius(r + 140)
+                                    .innerRadius(r + 120);
+                                    
+                            d3.select(this).selectAll(".segment1").attr("d", arc1new).style("stroke-width", 1);
+                            d3.select(this).selectAll(".segment2").attr("d", arc2new).style("stroke-width", 1);
+                            d3.select(this).selectAll(".segment3").attr("d", arc3new).style("stroke-width", 1);
+                            d3.select(this).selectAll(".segment4").attr("d", arc4new).style("stroke-width", 1);
+                            d3.select(this).selectAll(".segment5").attr("d", arc5new).style("stroke-width", 1);
+                            d3.select(this).selectAll(".segment6").attr("d", arc6new).style("stroke-width", 1);
+                            d3.select(this).selectAll(".segment7").attr("d", arc7new).style("stroke-width", 1);
+                            
+                            d3.select("#mainText")
+                                .remove();
+                            
+                            
+                            d3.select("svg")
+                                .append("text")
+                                .attr("class", "songName")
+                                .text(d.data.songName)
+                                .attr('x', width/2)
+                                .attr('y', width/2)
+                                .attr("text-anchor", "middle")
+                                .attr("fill", "white");
+                            
+                            
+                            d3.select("svg")
+                                .append("text")
+                                .attr("class", "songDetails")
+                                .text("album: " + d.data.Album)
+                                .attr('x', width/2)
+                                .attr('y', width/2 + 40)
+                                .attr("text-anchor", "middle")
+                                .attr("fill", "white");
+                                
+                            d3.select("svg")
+                                .append("text")
+                                .attr("class", "songDetails")
+                                .text("year: " + d.data.year)
+                                .attr('x', width/2)
+                                .attr('y', width/2 + 55)
+                                .attr("text-anchor", "middle")
+                                .attr("fill", "white");
+                                
+                            d3.select("svg")
+                                .append("text")
+                                .attr("class", "songDetails")
+                                .text("song writers: " + d.data.songWriters)
+                                .attr('x', width/2)
+                                .attr('y', width/2 + 70)
+                                .attr("text-anchor", "middle")
+                                .attr("fill", "white");
+                                
+                            }); 
+
+                            
+           var hoverOut = g.on("mouseout", function(d){
+             
+                      r = r + 30;  
+                        
+                       arc1new = d3.svg.arc()
+                                      .outerRadius(r + 10) 
+                                      .innerRadius(r);
+                       arc2new = d3.svg.arc()
+                                      .outerRadius(r + 20)
+                                      .innerRadius(r + 10);
+                       arc3new = d3.svg.arc()
+                                      .outerRadius(r + 30)
+                                      .innerRadius(r + 20); 
+                       arc4new = d3.svg.arc()
+                                      .outerRadius(r + 40)
+                                      .innerRadius(r + 30);
+                       arc5new = d3.svg.arc()
+                                      .outerRadius(r + 50)
+                                      .innerRadius(r + 40);
+                       arc6new = d3.svg.arc()
+                                      .outerRadius(r + 60)
+                                      .innerRadius(r + 50);
+                       arc7new = d3.svg.arc()
+                                      .outerRadius(r + 70)
+                                      .innerRadius(r + 60);
+                                      
+                      d3.select(this).selectAll(".segment1").attr("d", arc1new).style("stroke", "#212121").style("stroke-width", 1);
+                      d3.select(this).selectAll(".segment2").attr("d", arc2new).style("stroke", "#212121").style("stroke-width", 1);
+                      d3.select(this).selectAll(".segment3").attr("d", arc3new).style("stroke", "#212121").style("stroke-width", 1);
+                      d3.select(this).selectAll(".segment4").attr("d", arc4new).style("stroke", "#212121").style("stroke-width", 1);
+                      d3.select(this).selectAll(".segment5").attr("d", arc5new).style("stroke", "#212121").style("stroke-width", 1);
+                      d3.select(this).selectAll(".segment6").attr("d", arc6new).style("stroke", "#212121").style("stroke-width", 1);
+                      d3.select(this).selectAll(".segment7").attr("d", arc7new).style("stroke", "#212121").style("stroke-width", 1); 
+                      
+                      d3.select(".songName").remove();
+                      d3.selectAll(".songDetails").remove();
+
+           }) ;               
+      
+           }
+           
+           function duration(){
+            //   d3.selectAll(".segment1").remove();
+            //     d3.selectAll(".segment2").remove();
+            //     d3.selectAll(".segment3").remove();
+            //     d3.selectAll(".segment4").remove();
+            //     d3.selectAll(".segment5").remove();
+            //     d3.selectAll(".segment6").remove();
+            //     d3.selectAll(".segment7").remove();
+            //     d3.selectAll(".segment8").remove();
+            //     d3.selectAll(".segment9").remove();
+            //     d3.selectAll(".segment10").remove();
+            //     d3.selectAll(".segment11").remove();
+            //     d3.selectAll(".segment12").remove();
+            //     d3.selectAll(".segment13").remove();
+            //     d3.selectAll(".segment14").remove();
+            //     d3.selectAll(".segment15").remove();
+            //     d3.selectAll("#mainText").remove(); 
+            //     d3.selectAll(".segmentUS").remove(); 
+                
+                // segmentUS
+                
+                counter = 0;
+                
+                d3.select("svg")
+                    .append("text")
+                    .attr("id", "mainText")
+                    .text("Song duration")
+                    .attr("text-anchor", "middle")
+                    .attr('x', width/2)
+                    .attr('y', height/2)
+                    .attr("fill", "white");
+                    
+                 var arc1 = d3.svg.arc()
+                        .outerRadius(r + 5) 
+                        .innerRadius(r);
+                
+                
+                var arc2 = d3.svg.arc()
+                                  .outerRadius(r + 10)
+                                  .innerRadius(r + 5);    
+                              
+                var arc3 = d3.svg.arc()
+                                  .outerRadius(r + 15)
+                                  .innerRadius(r + 10); 
+                              
+                var arc4 = d3.svg.arc()
+                                  .outerRadius(r + 20)
+                                  .innerRadius(r + 15);     
+                              
+                var arc5 = d3.svg.arc()
+                                  .outerRadius(r + 25)
+                                  .innerRadius(r + 20);
+                                  
+                var arc6 = d3.svg.arc()
+                                  .outerRadius(r + 30)
+                                  .innerRadius(r + 25);
+                                  
+                var arc7 = d3.svg.arc()
+                                  .outerRadius(r + 35)
+                                  .innerRadius(r + 30);
+                
+                var arc8 = d3.svg.arc()
+                        .outerRadius(r + 40) 
+                        .innerRadius(r + 35);
+                
+                
+                var arc9 = d3.svg.arc()
+                                  .outerRadius(r + 45)
+                                  .innerRadius(r + 40);    
+                              
+                var arc10 = d3.svg.arc()
+                                  .outerRadius(r + 50)
+                                  .innerRadius(r + 45); 
+                              
+                var arc11 = d3.svg.arc()
+                                  .outerRadius(r + 55)
+                                  .innerRadius(r + 50);     
+                              
+                var arc12 = d3.svg.arc()
+                                  .outerRadius(r + 60)
+                                  .innerRadius(r + 55);
+                                  
+                var arc13 = d3.svg.arc()
+                                  .outerRadius(r + 65)
+                                  .innerRadius(r + 60);
+                                  
+                var arc14 = d3.svg.arc()
+                                  .outerRadius(r + 70)
+                                  .innerRadius(r + 65);
+                
+                var arc15 = d3.svg.arc()
+                                  .outerRadius(r + 75)
+                                  .innerRadius(r + 70);                  
+    
+    
+                     
+            
+    
+    // d1to130,d130to2,d2to230,d230to3,d3to330,d330to4,d4to430,d430to5,d5to530,d530to6,d6to630,d630to7,d7to730,d730to8,d8plus
+                
+                g.append("path")
+                  .attr("d", arc1)
+                  .attr("class", "segment1")
+                  .style("fill", function(d){ return d.data.d1to130; })
+                  .style("stroke", "#212121")
+                  .style("stroke-width", 2)
+                  .attr("opacity", 0)
+                  .transition()
+                  .delay(1000)
+                  .attr("opacity", 1)
+                  
+                  
+              g.append("path")
+                  .attr("d", arc2)
+                  .attr("class", "segment2")
+                  .style("fill", function(d){ return d.data.d130to2; })
+                  .style("stroke", "#212121")
+                  .style("stroke-width", 2)
+                  .attr("opacity", 0)
+                  .transition()
+                  .delay(1200)
+                  .attr("opacity", 1)
+                  
+              g.append("path")
+                  .attr("d", arc3)
+                  .attr("class", "segment3")
+                  .style("fill", function(d){ return d.data.d2to230; })
+                  .style("stroke", "#212121")
+                  .style("stroke-width", 2)
+                  .attr("opacity", 0)
+                  .transition()
+                  .delay(1400)
+                  .attr("opacity", 1);
+              
+               g.append("path")
+                  .attr("d", arc4)
+                  .attr("class", "segment4")
+                  .style("fill", function(d){ return d.data.d230to3; })
+                  .style("stroke", "#212121")
+                  .style("stroke-width", 2)
+                  .attr("opacity", 0)
+                  .transition()
+                  .delay(1600)
+                  .attr("opacity", 1);
+              
+               g.append("path")
+                  .attr("d", arc5)
+                  .attr("class", "segment5")
+                  .style("fill", function(d){ return d.data.d3to330; })
+                  .style("stroke", "#212121")
+                  .style("stroke-width", 2)
+                  .style("stroke-width", 2)
+                  .attr("opacity", 0)
+                  .transition()
+                  .delay(1800)
+                  .attr("opacity", 1);
+                  
+               g.append("path")
+                  .attr("d", arc6)
+                  .attr("class", "segment6")
+                  .style("fill", function(d){ return d.data.d330to4; })
+                  .style("stroke", "#212121")
+                  .style("stroke-width", 2)
+                  .attr("opacity", 0)
+                  .transition()
+                  .delay(2000)
+                  .attr("opacity", 1);
+                  
+               g.append("path")
+                  .attr("d", arc7)
+                  .attr("class", "segment7")
+                  .style("fill", function(d){ return d.data.d4to430; })
+                  .style("stroke", "#212121")
+                  .style("stroke-width", 2)
+                  .attr("opacity", 0)
+                  .transition()
+                  .delay(2200)
+                  .attr("opacity", 1);
+                  
+            g.append("path")
+                  .attr("d", arc8)
+                  .attr("class", "segment8")
+                  .style("fill", function(d){ return d.data.d430to5; })
+                  .style("stroke", "#212121")
+                  .style("stroke-width", 2)
+                  .attr("opacity", 0)
+                  .transition()
+                  .delay(1000)
+                  .attr("opacity", 1)
+                  
+                  
+              g.append("path")
+                  .attr("d", arc9)
+                  .attr("class", "segment9")
+                  .style("fill", function(d){ return d.data.d5to530; })
+                  .style("stroke", "#212121")
+                  .style("stroke-width", 2)
+                  .attr("opacity", 0)
+                  .transition()
+                  .delay(1200)
+                  .attr("opacity", 1)
+                  
+              g.append("path")
+                  .attr("d", arc10)
+                  .attr("class", "segment10")
+                  .style("fill", function(d){ return d.data.d530to6; })
+                  .style("stroke", "#212121")
+                  .style("stroke-width", 2)
+                  .attr("opacity", 0)
+                  .transition()
+                  .delay(1400)
+                  .attr("opacity", 1);
+              
+               g.append("path")
+                  .attr("d", arc11)
+                  .attr("class", "segment11")
+                  .style("fill", function(d){ return d.data.d6to630; })
+                  .style("stroke", "#212121")
+                  .style("stroke-width", 2)
+                  .attr("opacity", 0)
+                  .transition()
+                  .delay(1600)
+                  .attr("opacity", 1);
+              
+               g.append("path")
+                  .attr("d", arc12)
+                  .attr("class", "segment12")
+                  .style("fill", function(d){ return d.data.d630to7; })
+                  .style("stroke", "#212121")
+                  .style("stroke-width", 2)
+                  .style("stroke-width", 2)
+                  .attr("opacity", 0)
+                  .transition()
+                  .delay(1800)
+                  .attr("opacity", 1);
+                  
+               g.append("path")
+                  .attr("d", arc13)
+                  .attr("class", "segment13")
+                  .style("fill", function(d){ return d.data.d7to730; })
+                  .style("stroke", "#212121")
+                  .style("stroke-width", 2)
+                  .attr("opacity", 0)
+                  .transition()
+                  .delay(2000)
+                  .attr("opacity", 1);
+                  
+               g.append("path")
+                  .attr("d", arc14)
+                  .attr("class", "segment14")
+                  .style("fill", function(d){ return d.data.d730to8; })
+                  .style("stroke", "#212121")
+                  .style("stroke-width", 2)
+                  .attr("opacity", 0)
+                  .transition()
+                  .delay(2200)
+                  .attr("opacity", 1); 
+                  
+            g.append("path")
+                  .attr("d", arc15)
+                  .attr("class", "segment15")
+                  .style("fill", function(d){ return d.data.d8plus; })
+                  .style("stroke", "#212121")
+                  .style("stroke-width", 2)
+                  .attr("opacity", 0)
+                  .transition()
+                  .delay(2200)
+                  .attr("opacity", 1); 
+                  
+             var hoverIn =  g.on("mouseover", function(d){
+                 
+                            d3.selectAll(".yearHeading").remove();
+                    d3.selectAll(".yearClick").remove();
+                    d3.selectAll(".yearBody").remove();
+                              
+                              r = r - 30;
+                                  
+                              arc1 = d3.svg.arc()
+                                     .outerRadius(r + 6) 
+                                    .innerRadius(r);
+                              arc2 = d3.svg.arc()
+                                    .outerRadius(r + 12)
+                                  .innerRadius(r + 6); 
+                              arc3 = d3.svg.arc()
+                                    .outerRadius(r + 18)
+                                    .innerRadius(r + 12);
+                              arc4 = d3.svg.arc()
+                                    .outerRadius(r + 24)
+                                    .innerRadius(r + 18);
+                              arc5 = d3.svg.arc()
+                                    .outerRadius(r + 30)
+                                    .innerRadius(r + 24);
+                              arc6 = d3.svg.arc()
+                                    .outerRadius(r + 36)
+                                    .innerRadius(r + 30);      
+                              arc7 = d3.svg.arc()
+                                    .outerRadius(r + 42)
+                                    .innerRadius(r + 36);
+                                    
+                            var arc8 = d3.svg.arc()
+                                        .outerRadius(r + 48) 
+                                        .innerRadius(r + 42);
+                
+                
+                var arc9 = d3.svg.arc()
+                                  .outerRadius(r + 54)
+                                  .innerRadius(r + 48);    
+                              
+                var arc10 = d3.svg.arc()
+                                  .outerRadius(r + 60)
+                                  .innerRadius(r + 54); 
+                              
+                var arc11 = d3.svg.arc()
+                                  .outerRadius(r + 66)
+                                  .innerRadius(r + 60);     
+                              
+                var arc12 = d3.svg.arc()
+                                  .outerRadius(r + 72)
+                                  .innerRadius(r + 66);
+                                  
+                var arc13 = d3.svg.arc()
+                                  .outerRadius(r + 78)
+                                  .innerRadius(r + 72);
+                                  
+                var arc14 = d3.svg.arc()
+                                  .outerRadius(r + 84)
+                                  .innerRadius(r + 78);
+                
+                var arc15 = d3.svg.arc()
+                                  .outerRadius(r + 92)
+                                  .innerRadius(r + 84);                  
+                  
+                            d3.select(this).selectAll(".segment1").attr("d", arc1).style("stroke-width", 2);
+                            d3.select(this).selectAll(".segment2").attr("d", arc2).style("stroke-width", 2);
+                            d3.select(this).selectAll(".segment3").attr("d", arc3).style("stroke-width", 2);
+                            d3.select(this).selectAll(".segment4").attr("d", arc4).style("stroke-width", 2);
+                            d3.select(this).selectAll(".segment5").attr("d", arc5).style("stroke-width", 2);
+                            d3.select(this).selectAll(".segment6").attr("d", arc6).style("stroke-width", 2);
+                            d3.select(this).selectAll(".segment7").attr("d", arc7).style("stroke-width", 2);
+                            d3.select(this).selectAll(".segment8").attr("d", arc8).style("stroke-width", 2);
+                            d3.select(this).selectAll(".segment9").attr("d", arc9).style("stroke-width", 2);
+                            d3.select(this).selectAll(".segment10").attr("d", arc10).style("stroke-width", 2);
+                            d3.select(this).selectAll(".segment11").attr("d", arc11).style("stroke-width", 2);
+                            d3.select(this).selectAll(".segment12").attr("d", arc12).style("stroke-width", 2);
+                            d3.select(this).selectAll(".segment13").attr("d", arc13).style("stroke-width", 2);
+                            d3.select(this).selectAll(".segment14").attr("d", arc14).style("stroke-width", 2);
+                             d3.select(this).selectAll(".segment15").attr("d", arc15).style("stroke-width", 2);
+                            
+                            d3.select("#mainText")
+                                .remove();
+                            
+                            
+                            d3.select("svg")
+                                .append("text")
+                                .attr("class", "songName")
+                                .text("'" + d.data.songName + "'")
+                                .attr('x', width/2)
+                                .attr('y', height/2)
+                                .attr("text-anchor", "middle")
+                                .attr("fill", "white");
+                            
+                            
+                            d3.select("svg")
+                                .append("text")
+                                .attr("class", "songDetails")
+                                .text("album: " + d.data.Album)
+                                .attr('x', width/2)
+                                .attr('y', height/2 + 40)
+                                .attr("text-anchor", "middle")
+                                .attr("fill", "white");
+                                
+                            d3.select("svg")
+                                .append("text")
+                                .attr("class", "songDetails")
+                                .text("year: " + d.data.year)
+                                .attr('x', width/2)
+                                .attr('y', height/2 + 55)
+                                .attr("text-anchor", "middle")
+                                .attr("fill", "white");
+                                
+                            d3.select("svg")
+                                .append("text")
+                                .attr("class", "songDetails")
+                                .text("song writers: " + d.data.songWriters)
+                                .attr('x', width/2)
+                                .attr('y', height/2 + 70)
+                                .attr("text-anchor", "middle")
+                                .attr("fill", "white");
+                              
+             });
+             
+             
+              var hoverOut = g.on("mouseout", function(d){
+             
+                      r = r + 30;  
+                        
+                       var arc1 = d3.svg.arc()
+                        .outerRadius(r + 5) 
+                        .innerRadius(r);
+                
+                
+                var arc2 = d3.svg.arc()
+                                  .outerRadius(r + 10)
+                                  .innerRadius(r + 5);    
+                              
+                var arc3 = d3.svg.arc()
+                                  .outerRadius(r + 15)
+                                  .innerRadius(r + 10); 
+                              
+                var arc4 = d3.svg.arc()
+                                  .outerRadius(r + 20)
+                                  .innerRadius(r + 15);     
+                              
+                var arc5 = d3.svg.arc()
+                                  .outerRadius(r + 25)
+                                  .innerRadius(r + 20);
+                                  
+                var arc6 = d3.svg.arc()
+                                  .outerRadius(r + 30)
+                                  .innerRadius(r + 25);
+                                  
+                var arc7 = d3.svg.arc()
+                                  .outerRadius(r + 35)
+                                  .innerRadius(r + 30);
+                
+                var arc8 = d3.svg.arc()
+                        .outerRadius(r + 40) 
+                        .innerRadius(r + 35);
+                
+                
+                var arc9 = d3.svg.arc()
+                                  .outerRadius(r + 45)
+                                  .innerRadius(r + 40);    
+                              
+                var arc10 = d3.svg.arc()
+                                  .outerRadius(r + 50)
+                                  .innerRadius(r + 45); 
+                              
+                var arc11 = d3.svg.arc()
+                                  .outerRadius(r + 55)
+                                  .innerRadius(r + 50);     
+                              
+                var arc12 = d3.svg.arc()
+                                  .outerRadius(r + 60)
+                                  .innerRadius(r + 55);
+                                  
+                var arc13 = d3.svg.arc()
+                                  .outerRadius(r + 65)
+                                  .innerRadius(r + 60);
+                                  
+                var arc14 = d3.svg.arc()
+                                  .outerRadius(r + 70)
+                                  .innerRadius(r + 65);
+                
+                var arc15 = d3.svg.arc()
+                                  .outerRadius(r + 75)
+                                  .innerRadius(r + 70);                  
+    
+    
+                d3.select(this).selectAll(".segment1").attr("d", arc1).style("stroke-width", 2);
+                            d3.select(this).selectAll(".segment2").attr("d", arc2).style("stroke-width", 2);
+                            d3.select(this).selectAll(".segment3").attr("d", arc3).style("stroke-width", 2);
+                            d3.select(this).selectAll(".segment4").attr("d", arc4).style("stroke-width", 2);
+                            d3.select(this).selectAll(".segment5").attr("d", arc5).style("stroke-width", 2);
+                            d3.select(this).selectAll(".segment6").attr("d", arc6).style("stroke-width", 2);
+                            d3.select(this).selectAll(".segment7").attr("d", arc7).style("stroke-width", 2);
+                            d3.select(this).selectAll(".segment8").attr("d", arc8).style("stroke-width", 2);
+                            d3.select(this).selectAll(".segment9").attr("d", arc9).style("stroke-width", 2);
+                            d3.select(this).selectAll(".segment10").attr("d", arc10).style("stroke-width", 2);
+                            d3.select(this).selectAll(".segment11").attr("d", arc11).style("stroke-width", 2);
+                            d3.select(this).selectAll(".segment12").attr("d", arc12).style("stroke-width", 2);
+                            d3.select(this).selectAll(".segment13").attr("d", arc13).style("stroke-width", 2);
+                            d3.select(this).selectAll(".segment14").attr("d", arc14).style("stroke-width", 2);
+                             d3.select(this).selectAll(".segment15").attr("d", arc15).style("stroke-width", 2);
+                                 
+            
+    
+    // d1to130,d130to2,d2to230,d230to3,d3to330,d330to4,d4to430,d430to5,d5to530,d530to6,d6to630,d630to7,d7to730,d730to8,d8plus
+                
+                        
+                
+                    d3.select(".songName").remove();
+                      d3.selectAll(".songDetails").remove();
+
+           }) ;       
+                  
+                  
+           }
+           
+           function uscharts(){
+               
+               var arcUS = d3.svg.arc()
+                        .outerRadius(r - 35)
+                        .innerRadius(r - 40); 
+                        
+                g.append("path")
+                  .attr("d", arcUS)
+                  .attr("class", "segmentUS")
+                  .style("fill", function(d){ if(parseFloat(d.data.chartPos) > 0){return "yellow";}else{ return "#212121";} })
+                  .style("stroke", "#212121")
+                  .style("stroke-width", 2)
+                  .attr("opacity", 0)
+                  .transition()
+                  .delay(1000)
+                  .attr("opacity", 1)        
+           }
+           
+           function lennon(){
+               
+            //   d3.selectAll(".segmentUS").remove();
+            //   d3.selectAll(".segmentWriter").remove();
+               
+               var arcWriter = d3.svg.arc()
+                        .outerRadius(r + 115)
+                        .innerRadius(r + 105);
+               
+              
+               
+               g.append("path")
+                  .attr("d", arcWriter)
+                  .attr("class", "segmentWriter")
+                  .style("fill", function(d){ if(d.data.lennon ==  1){return "white";}else{ return "#212121";} })
+                  .style("stroke", "#212121")
+                  .style("stroke-width", 4)
+                  .attr("opacity", 0)
+                  .transition()
+                  .delay(1000)
+                  .attr("opacity", 1)  
+               
+               
+           }
+           
+      });
+
+        
+      
+         
+      
+   
+        
+</script>

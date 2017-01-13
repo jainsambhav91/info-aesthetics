@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<head>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400i, 400, 900" rel="stylesheet">
+</head>  
+<style>
+    
+    @font-face { font-family: Miller1; src: url('Miller-Text-Bold-Italic_30502.ttf'); } 
+    @font-face { font-family: Miller2; src: url('Miller-Text-Bold_30503.ttf'); } 
+    @font-face { font-family: Miller3; src: url('Miller-Text-Italic_30504.ttf'); }
+    @font-face { font-family: Miller4; src: url('MillerTextRoman.ttf'); }
+   
+    #mainText {
+      font-family: 'Miller3';
+      font-weight: 400;
+      font-size: 35px;
+      /*color: green;*/
+      /*margin-left: 50px;*/
+    }
+    
+    .songName {
+      font-family: 'Miller3';
+      /*font-weight: 400;*/
+      font-size: 24px;
+      /*font-style:italic;*/
+      /*color: green;*/
+      /*margin-left: 50px;*/
+    }
+    
+    .songDetails {
+          font-family: 'Miller4';
+          /*font-weight: 400;*/
+          font-size: 12px;
+    }
+    
+    body {
+      
+      background-color: #212121;
+ 
+    }
+    .arc text {
+      font: 10px sans-serif;
+      text-anchor: middle;
+    }
+
+    .arc path {
+      /*stroke: #fff;*/
+    }
+    
+</style>
+
+<body>
+  <script src="//d3js.org/d3.v3.min.js"></script>
+  <script src='songs.js'></script>
+  <script>
+
+      var width = 960,
+          height = 960,
+          radius = Math.min(width, height) / 2;
+          var r = radius - 200;
+     
+     var svg = d3.select("body").append("svg")
+                          .attr("width", width)
+                          .attr("height", height)
+                        .append("g")
+                          .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
+                       
+      d3.select("svg")
+            .append("text")
+            .attr("id", "mainText")
+            .text("Rock influences")
+            .attr("text-anchor", "middle")
+            .attr('x', width/2)
+            .attr('y', height/2)
+            .attr("fill", "white");
+      
+         
+      var arc1 = d3.svg.arc()
+                        .outerRadius(r + 70) 
+                        .innerRadius(r);
+              
+      var arc2 = d3.svg.arc()
+                        .outerRadius(r + 20)
+                        .innerRadius(r + 10);    
+                    
+      var arc3 = d3.svg.arc()
+                        .outerRadius(r + 30)
+                        .innerRadius(r + 20); 
+                    
+      var arc4 = d3.svg.arc()
+                        .outerRadius(r + 40)
+                        .innerRadius(r + 30);     
+                    
+      var arc5 = d3.svg.arc()
+                        .outerRadius(r + 50)
+                        .innerRadius(r + 40);
+                        
+      var arc6 = d3.svg.arc()
+                        .outerRadius(r + 60)
+                        .innerRadius(r + 50);
+                        
+      var arc7 = d3.svg.arc()
+                        .outerRadius(r + 70)
+                        .innerRadius(r + 60);    
+                    
+      
+      d3.csv("beatles-data-load-v2.csv", function(error, data) {
+            if (error) throw error;
+      
+              var pie = d3.layout.pie()
+                  .sort(null)
+                  .value(function() { return 10; });
+            
+              var g = svg.selectAll(".arc")
+                  .data(pie(data))
+                .enter().append("g")
+                  .attr("class", "arc");
+            
+              g.append("path")
+                  .attr("d", arc1)
+                  .attr("class", "segment1")
+                  .style("fill", function(d){ return d.data.rock; })
+                  .style("stroke", "#212121")
+                  .style("stroke-width", 2)
+                  
+                  
+            //   g.append("path")
+            //       .attr("d", arc2)
+            //       .attr("class", "segment2")
+            //       .style("fill", function(d){ return d.data.pop; })
+            //       .style("stroke", "#212121")
+            //       .style("stroke-width", 2)
+                  
+            //   g.append("path")
+            //       .attr("d", arc3)
+            //       .attr("class", "segment3")
+            //       .style("fill", function(d){ return d.data.folk; })
+            //       .style("stroke", "#212121")
+            //       .style("stroke-width", 2);
+              
+            //   g.append("path")
+            //       .attr("d", arc4)
+            //       .attr("class", "segment4")
+            //       .style("fill", function(d){ return d.data.psychedelic; })
+            //       .style("stroke", "#212121")
+            //       .style("stroke-width", 2);
+              
+            //   g.append("path")
+            //       .attr("d", arc5)
+            //       .attr("class", "segment5")
+            //       .style("fill", function(d){ return d.data.blues; })
+            //       .style("stroke", "#212121")
+            //       .style("stroke-width", 2);
+                  
+            //   g.append("path")
+            //       .attr("d", arc6)
+            //       .attr("class", "segment6")
+            //       .style("fill", function(d){ return d.data.rockroll; })
+            //       .style("stroke", "#212121")
+            //       .style("stroke-width", 2);
+                  
+            //   g.append("path")
+            //       .attr("d", arc7)
+            //       .attr("class", "segment7")
+            //       .style("fill", function(d){ return d.data.other; })
+            //       .style("stroke", "#212121")
+            //       .style("stroke-width", 2);  
+                 
+                  
+           var hoverIn =  g.on("mouseover", function(d){
+                              
+                              r = r - 30;
+                                  
+                              arc1 = d3.svg.arc()
+                                    .outerRadius(r + 140)
+                                    .innerRadius(r);
+                            //   arc2 = d3.svg.arc()
+                            //         .outerRadius(r + 40)
+                            //         .innerRadius(r + 20);
+                            //   arc3 = d3.svg.arc()
+                            //         .outerRadius(r + 60)
+                            //         .innerRadius(r + 40);
+                            //   arc4 = d3.svg.arc()
+                            //         .outerRadius(r + 80)
+                            //         .innerRadius(r + 60);
+                            //   arc5 = d3.svg.arc()
+                            //         .outerRadius(r + 100)
+                            //         .innerRadius(r + 80);
+                            //   arc6 = d3.svg.arc()
+                            //         .outerRadius(r + 120)
+                            //         .innerRadius(r + 100);      
+                            //   arc7 = d3.svg.arc()
+                            //         .outerRadius(r + 140)
+                            //         .innerRadius(r + 120);
+                                    
+                            d3.select(this).selectAll(".segment1").attr("d", arc1).style("stroke-width", 2);
+                            // d3.select(this).selectAll(".segment2").attr("d", arc2).style("stroke-width", 2);
+                            // d3.select(this).selectAll(".segment3").attr("d", arc3).style("stroke-width", 2);
+                            // d3.select(this).selectAll(".segment4").attr("d", arc4).style("stroke-width", 2);
+                            // d3.select(this).selectAll(".segment5").attr("d", arc5).style("stroke-width", 2);
+                            // d3.select(this).selectAll(".segment6").attr("d", arc6).style("stroke-width", 2);
+                            // d3.select(this).selectAll(".segment7").attr("d", arc7).style("stroke-width", 2);
+                            
+                            d3.select("#mainText")
+                                .remove();
+                            
+                            
+                            d3.select("svg")
+                                .append("text")
+                                .attr("class", "songName")
+                                .text("'" + d.data.songName + "'")
+                                .attr('x', width/2)
+                                .attr('y', width/2)
+                                .attr("text-anchor", "middle")
+                                .attr("fill", "white");
+                            
+                            
+                            d3.select("svg")
+                                .append("text")
+                                .attr("class", "songDetails")
+                                .text("album: " + d.data.Album)
+                                .attr('x', width/2)
+                                .attr('y', width/2 + 40)
+                                .attr("text-anchor", "middle")
+                                .attr("fill", "white");
+                                
+                            d3.select("svg")
+                                .append("text")
+                                .attr("class", "songDetails")
+                                .text("year: " + d.data.year)
+                                .attr('x', width/2)
+                                .attr('y', width/2 + 55)
+                                .attr("text-anchor", "middle")
+                                .attr("fill", "white");
+                                
+                            d3.select("svg")
+                                .append("text")
+                                .attr("class", "songDetails")
+                                .text("song writers: " + d.data.songWriters)
+                                .attr('x', width/2)
+                                .attr('y', width/2 + 70)
+                                .attr("text-anchor", "middle")
+                                .attr("fill", "white");
+                                
+                            }); 
+
+                            
+           var hoverOut = g.on("mouseout", function(d){
+             
+                      r = r + 30;  
+                        
+                       arc1 = d3.svg.arc()
+                                      .outerRadius(r + 70) 
+                                      .innerRadius(r);
+                    //   arc2 = d3.svg.arc()
+                    //                   .outerRadius(r + 20)
+                    //                   .innerRadius(r + 10);
+                    //   arc3 = d3.svg.arc()
+                    //                   .outerRadius(r + 30)
+                    //                   .innerRadius(r + 20); 
+                    //   arc4 = d3.svg.arc()
+                    //                   .outerRadius(r + 40)
+                    //                   .innerRadius(r + 30);
+                    //   arc5 = d3.svg.arc()
+                    //                   .outerRadius(r + 50)
+                    //                   .innerRadius(r + 40);
+                    //   arc6 = d3.svg.arc()
+                    //                   .outerRadius(r + 60)
+                    //                   .innerRadius(r + 50);
+                    //   arc7 = d3.svg.arc()
+                    //                   .outerRadius(r + 70)
+                    //                   .innerRadius(r + 60);
+                                      
+                      d3.select(this).selectAll(".segment1").attr("d", arc1).style("stroke", "#212121").style("stroke-width", 2);
+                    //   d3.select(this).selectAll(".segment2").attr("d", arc2).style("stroke", "#212121").style("stroke-width", 2);
+                    //   d3.select(this).selectAll(".segment3").attr("d", arc3).style("stroke", "#212121").style("stroke-width", 2);
+                    //   d3.select(this).selectAll(".segment4").attr("d", arc4).style("stroke", "#212121").style("stroke-width", 2);
+                    //   d3.select(this).selectAll(".segment5").attr("d", arc5).style("stroke", "#212121").style("stroke-width", 2);
+                    //   d3.select(this).selectAll(".segment6").attr("d", arc6).style("stroke", "#212121").style("stroke-width", 2);
+                    //   d3.select(this).selectAll(".segment7").attr("d", arc7).style("stroke", "#212121").style("stroke-width", 2); 
+                      
+                      d3.select(".songName").remove();
+                      d3.selectAll(".songDetails").remove();
+
+           }) ;               
+      });
+
+</script>
