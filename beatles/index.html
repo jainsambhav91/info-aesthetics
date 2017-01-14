@@ -1964,7 +1964,7 @@
                 d3.selectAll(".yearBody").remove();
                 d3.select("#subText").remove();
                
-                d3.selectAll(".segment1").remove();
+                // d3.selectAll(".segment1").remove();
                 d3.selectAll(".segment2").remove();
                 d3.selectAll(".segment3").remove();
                 d3.selectAll(".segment4").remove();
@@ -2876,14 +2876,14 @@
                
                var arcUS = d3.svg.arc()
                         .outerRadius(r - 35)
-                        .innerRadius(r - 40); 
+                        .innerRadius(r - 45); 
                         
                 g.append("path")
                   .attr("d", arcUS)
                   .attr("class", "segmentUS")
-                  .style("fill", function(d){ if(parseFloat(d.data.chartPos) > 0){return "yellow";}else{ return "#212121";} })
+                  .style("fill", function(d){ if(parseFloat(d.data.chartPos) > 0){return "#bac635";}else{ return "#212121";} })
                   .style("stroke", "#212121")
-                  .style("stroke-width", 2)
+                  .style("stroke-width", 1)
                   .attr("opacity", 0)
                   .transition()
                   .delay(1000)
